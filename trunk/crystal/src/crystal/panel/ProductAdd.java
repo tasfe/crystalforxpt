@@ -185,7 +185,7 @@ public class ProductAdd extends JDialog{
 			jPanelMaterial.add(jSpinnerMaterial[i], new XYConstraints(
 					330 + 490 * (i % 2), 5 + 25 * (i / 2), 50, 20));
 			jPanelMaterial.add(jLabelPrices[i], new XYConstraints(
-					390 + 490 * (i % 2), 5 + 25 * (i / 2), 80, 20));
+					390 + 490 * (i % 2), 5 + 25 * (i / 2), 90, 20));
 		}
 
 		// jPanelButton
@@ -212,7 +212,7 @@ public class ProductAdd extends JDialog{
 		if(type == Constants.ITEM_MODIFY)
 			this.setTitle("修改商品属性");
 		this.setIconImage(MainFrame.imageLogo.getImage());
-		this.setSize(980, 500);
+		this.setSize(990, 500);
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 	}
 	
@@ -505,7 +505,7 @@ public class ProductAdd extends JDialog{
 			if(ob.equals(""))
 				continue;
 			Material m = (Material)ob;
-			jLabelPrices[i].setText(formatter.format(m.getPrice()));
+			jLabelPrices[i].setText(formatter.format(m.getPrice()) + "（" + m.getCount() + "个）");
 			if(count <= 0)
 				continue;
 			materialPrice += m.getPrice() * count;
