@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+ 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<bean id="jdbcSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:20520/crystal">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="111111"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="jdbcSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="connection.isolation">2</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.jdbc.batch_size">100</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>crystal/hibernate/po/Material.hbm.xml</value>
+				<value>crystal/hibernate/po/MaterialBuy.hbm.xml</value>
+				<value>crystal/hibernate/po/MaterialCategory.hbm.xml</value>
+				<value>crystal/hibernate/po/Product.hbm.xml</value>
+				<value>crystal/hibernate/po/ProductCategory.hbm.xml</value>
+				<value>crystal/hibernate/po/ProductSell.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">   
+		<property name="sessionFactory">   
+	    	<ref bean="sessionFactory" />   
+		</property>   
+	</bean>
+	
+	<bean id="jdbcTemplate"	class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource"><ref bean="jdbcSource"/></property>
+	</bean>
+	
+	<!-- Transactional advice -->   
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">   
+        <tx:attributes>   
+            <!-- methods starting with 'save', 'update' or 'remove' use the default transaction settings -->   
+            <tx:method name="save*"/>   
+            <tx:method name="update*"/>   
+            <tx:method name="remove*"/>      
+            <tx:method name="del*"/>
+            <tx:method name="merge*"/>
+            <tx:method name="changePassword*"/>
+            <!-- other methods are set to read only -->   
+            <tx:method name="*" read-only="true"/>   
+        </tx:attributes>   
+    </tx:advice>  
+	
+	<bean id="BaseHibernateDAO" class="crystal.hibernate.dao.BaseHibernateDAO">     
+	    <property name="sessionFactory">     
+	        <ref local="sessionFactory" />     
+	    </property>
+	</bean>
+	<bean id="hibernateTemplate"
+          class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory"> 
+            <ref bean="sessionFactory"/>
+        </property>            
+    </bean>
+
+	<bean id="MaterialDAO" class="crystal.hibernate.dao.MaterialDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="materialService" class="crystal.service.MaterialService" lazy-init="true">
+		<property name="materialDAO">
+			<ref bean="MaterialDAO" />
+		</property>
+	</bean>
+	<bean id="ProductDAO" class="crystal.hibernate.dao.ProductDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="productService" class="crystal.service.ProductService" lazy-init="true">
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+	</bean>
+	<bean id="ProductSellDAO"
+		class="crystal.hibernate.dao.ProductSellDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="productSellService" class="crystal.service.ProductSellService" lazy-init="true">
+		<property name="productSellDAO">
+			<ref bean="ProductSellDAO" />
+		</property>
+	</bean>
+	<bean id="ProductCategoryDAO"
+		class="crystal.hibernate.dao.ProductCategoryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="productCategoryService" class="crystal.service.ProductCategoryService" lazy-init="true">
+		<property name="productCategoryDAO">
+			<ref bean="ProductCategoryDAO" />
+		</property>
+	</bean>
+	<bean id="MaterialCategoryDAO"
+		class="crystal.hibernate.dao.MaterialCategoryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="materialCategoryService" class="crystal.service.MaterialCategoryService" lazy-init="true">
+		<property name="materialCategoryDAO">
+			<ref bean="MaterialCategoryDAO" />
+		</property>
+	</bean>
+	<bean id="MaterialBuyDAO"
+		class="crystal.hibernate.dao.MaterialBuyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="materialBuyService" class="crystal.service.MaterialBuyService" lazy-init="true">
+		<property name="materialBuyDAO">
+			<ref bean="MaterialBuyDAO" />
+		</property>
+	</bean>
+	<bean id="BackupDAO" class="crystal.hibernate.dao.BackupDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="backupService" class="crystal.service.BackupService" lazy-init="true">
+		<property name="backupDAO">
+			<ref bean="BackupDAO"/>
+		</property>
+	</bean>
+</beans>
+
+
