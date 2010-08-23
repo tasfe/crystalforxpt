@@ -131,7 +131,7 @@ public class ProductAdd extends JDialog{
 				.getBean("productService");
 		productCategoryService = (ProductCategoryService) AppContextUtil
 				.getInstance().getBean("productCategoryService");
-		String hql = "FROM Material WHERE materialCategory.id != 2 ORDER BY name ASC";
+		String hql = "FROM Material m WHERE materialCategory.id != 2 and m.count > 0 ORDER BY name ASC";
 		materialList = materialService.findBySql(hql);
 //		materialCategoryList = materialCategoryService.findAll();
 		productCategoryList = productCategoryService.findAll();

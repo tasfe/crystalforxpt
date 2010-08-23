@@ -30,6 +30,10 @@ public class MaterialService{
 		return materialDAO.findAll();
 	}
 	
+	public List findAllByCount(int count) {
+		return materialDAO.findAllByCount(count);
+	}
+	
 	public List findByType(Integer type) {
 		return materialDAO.findByType(type);
 	}

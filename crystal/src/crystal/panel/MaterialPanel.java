@@ -66,6 +66,8 @@ public class MaterialPanel extends JPanel {
 	JPanel jPanelButton = new JPanel();
 	JButton jButtonAdd = new JButton("添加新种类");
 	JButton jButtonDel = new JButton("删除");
+	JButton jButtonDisp = new JButton("显示全部材料");
+	boolean dispAll = false;
 	JButton jButtonCompute = new JButton("计算剩余库存量");
 	JLabel jLabelTotal = new JLabel();
 	int totalCount = 0;
@@ -101,7 +103,8 @@ public class MaterialPanel extends JPanel {
 				.getBean("materialService");
 		materialBuyService = (MaterialBuyService) AppContextUtil.getInstance()
 				.getBean("materialBuyService");
-		materialList = materialService.findAll();
+		// materialList = materialService.findAll();
+		materialList = materialService.findAllByCount(0);
 		materialCategoryService = (MaterialCategoryService) AppContextUtil.getInstance()
 				.getBean("materialCategoryService");
 		materialCategoryList = materialCategoryService.findAll();
@@ -144,6 +147,13 @@ public class MaterialPanel extends JPanel {
 			}
 		});
 		
+		jButtonDisp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jButtonDisp_actionPerformed(e);
+			}
+		});
+		
+		
 		jButtonCompute.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jButtonCompute_actionPerformed(e);
@@ -153,6 +163,7 @@ public class MaterialPanel extends JPanel {
 		// UI-布局
 		jPanelButton.add(jButtonAdd);
 		// jPanelButton.add(jButtonDel);
+		jPanelButton.add(jButtonDisp);
 		jPanelButton.add(jButtonCompute);
 		computerTotal();
 		jLabelTotal.setForeground(Color.RED);
@@ -251,6 +262,7 @@ public class MaterialPanel extends JPanel {
 				}
 			}
 		});
+/*		
 		jTable.addMouseMotionListener(new MouseMotionListener() {
 			public void mouseDragged(MouseEvent e) {
 			}
@@ -268,7 +280,7 @@ public class MaterialPanel extends JPanel {
 				}
 			}
 		});
-
+*/
 		tableModel.addTableModelListener(new TableModelListener() {
 			public void tableChanged(TableModelEvent e) {
 				int row = e.getFirstRow();
@@ -464,6 +476,13 @@ public class MaterialPanel extends JPanel {
 		Tools.dispWin(dlg);
 	}
 	
+	protected void jButtonDisp_actionPerformed(ActionEvent e) {
+		dispAll = !dispAll;
+		materialList = dispAll ? materialService.findAll() : materialService.findAllByCount(0);
+		jButtonDisp.setText(dispAll ? "显示库存量非0的材料" : "显示全部材料");
+		reloadTable();
+	}
+	
 	protected void jButtonCompute_actionPerformed(ActionEvent e) {
 		computerTotal();
 	}
@@ -549,6 +568,7 @@ public class MaterialPanel extends JPanel {
 
 	public void reloadTable() {
 		tableModel.getDataVector().removeAllElements();
+		tableModel.fireTableDataChanged();
 		int index = 1;
 		for (Material m : materialList) {
 			Object[] object = { index, index, m.getName(),
