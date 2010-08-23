@@ -142,7 +142,7 @@ public class TableUtil {
 //					}
 
 					if (row % 2 == 0)
-						setBackground(Color.white);
+						setBackground(Color.WHITE);
 					else if (row % 2 == 1)
 						setBackground(new Color(206, 231, 255));
 
@@ -165,6 +165,21 @@ public class TableUtil {
 //											password, isSelected, hasFocus,
 //											row, column);
 //						}
+//					}
+					
+					// 库存数如果 == 0，则此行显示为特殊颜色
+					try {
+						if((Integer)table.getModel().getValueAt(row, table.getColumnModel().getColumnIndex("库存数"))  == 0) {
+							setBackground(Color.PINK);
+						}
+					}catch(IllegalArgumentException ex) {
+						
+					}
+//					if (table.getColumnName(column).equals("库存数")) {
+//						if((Integer)value == 0 ) {
+//							setBackground(Color.PINK);
+//						}
+//						
 //					}
 
 					return super.getTableCellRendererComponent(table, value,

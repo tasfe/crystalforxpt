@@ -161,6 +161,17 @@ public class MaterialDAO extends BaseHibernateDAO<Material, Integer> {
 			throw re;
 		}
 	}
+	
+	public List findAllByCount(int count) {
+		log.debug("finding by count Material instances");
+		try {
+			String queryString = "from Material m where m.count > " + count + " ORDER BY name ASC";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find material by count failed", re);
+			throw re;
+		}
+	}
 
 	public Material merge(Material detachedInstance) {
 		log.debug("merging Material instance");
