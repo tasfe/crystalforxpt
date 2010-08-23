@@ -169,7 +169,8 @@ public class TableUtil {
 					
 					// 库存数如果 == 0，则此行显示为特殊颜色
 					try {
-						if((Integer)table.getModel().getValueAt(row, table.getColumnModel().getColumnIndex("库存数"))  == 0) {
+						// if((Integer)table.getModel().getValueAt(row, table.getColumnModel().getColumnIndex("库存数"))  == 0) {
+						if((Integer)table.getValueAt(row, table.getColumn("库存数").getModelIndex()) == 0) {  //table.getColumnModel().getColumnIndex("库存数"))  == 0) {
 							setBackground(Color.PINK);
 						}
 					}catch(IllegalArgumentException ex) {
