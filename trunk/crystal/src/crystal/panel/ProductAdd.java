@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -125,25 +126,24 @@ public class ProductAdd extends JDialog{
 	private void init() {
 		materialService = (MaterialService) AppContextUtil.getInstance()
 				.getBean("materialService");
-//		materialCategoryService = (MaterialCategoryService) AppContextUtil.getInstance()
-//				.getBean("materialCategoryService");
 		productService = (ProductService) AppContextUtil.getInstance()
 				.getBean("productService");
 		productCategoryService = (ProductCategoryService) AppContextUtil
 				.getInstance().getBean("productCategoryService");
-		String hql = "FROM Material m WHERE materialCategory.id != 2 and m.count > 0 ORDER BY name ASC";
+		String hql;
+		// 新增商品的时候，材料选择菜单中不显示数量为0的商品，但修改商品时，需要显示
+		if(type == Constants.ITEM_ADD)
+			hql = "FROM Material m WHERE materialCategory.id != 2 and m.count > 0 ORDER BY name ASC";
+		else
+			hql = "FROM Material m WHERE materialCategory.id != 2 ORDER BY name ASC";
 		materialList = materialService.findBySql(hql);
-//		materialCategoryList = materialCategoryService.findAll();
 		productCategoryList = productCategoryService.findAll();
 		
-//		jComboBoxMaterialCategory = new JComboBox[materialCategoryList.size()];
-
 		contentPane = (JPanel) this.getContentPane();
 
 		jTextFieldCount.setText("1");
 		jTextFieldCount.setEditable(false);
 		
-//		initInfo();
 		initMaterial();
 		for(ProductCategory mc : productCategoryList) {
 			jComboBoxCategory.addItem(mc);
@@ -395,6 +395,7 @@ public class ProductAdd extends JDialog{
 					
 				}
 			}
+			// 2010-08-25 修改商品时，依旧需要对数量进行判断和增减
 			else {
 				product.setName(jTextFieldName.getText());
 				//if (price > 0)
@@ -408,6 +409,8 @@ public class ProductAdd extends JDialog{
 				product.setColor(jTextFieldColor.getText());
 				product.setNote1(jTextFieldNote1.getText());
 
+				verifyMaterialCountModify();
+				
 				// 使用java的反射机制，批量函数操作
 				try {
 					Class c = product.getClass();
@@ -466,6 +469,55 @@ public class ProductAdd extends JDialog{
 		}
 		return true;
 	}
+	
+	// 使用 （ 商品原先所需数目 + 库存数）是否小于 JComboBoxMaterial数组中的数据 ，验证所需材料数目是否够用
+	private boolean verifyMaterialCountModify() {
+		verifyList.clear();
+		countList.clear();
+		try {
+			for (int i = 0; i < materialSize; i++) {
+				if ("".equals(jComboBoxMaterial[i].getSelectedItem()))
+					continue;
+				int tempi = numberModel[i].getNumber().intValue();
+				if (tempi <= 0)
+					continue;
+				Material tempm = (Material) jComboBoxMaterial[i].getSelectedItem();
+				//商品原先所需数目 + 库存数 < 选择数据 ，判断材料出错
+				if(getMcount(i) + tempm.getCount() < tempi) {
+					JOptionPane.showMessageDialog(this, "制作商品所需材料【" + tempm.getName() + "】数目不够，请购买材料\n"
+							+ "库存数目：" + tempm.getCount() + "， 需要数目：" + tempi);
+					return false;
+				} else {
+					verifyList.add(tempm);
+					countList.add(tempi);
+				}
+			}
+		} catch (Exception e) {
+		}
+		return true;
+	}
+	
+	// 返回prodcut.getMcount(i)()的值，i为指定数值
+	public int getMcount(int i) {
+		Class c = product.getClass();
+		// String strId = "getMaterialByMid" + (i + 1);
+		String strCount = "getMcount" + (i + 1);
+		// Method mid = c.getMethod(strId, new Class[] { Material.class });
+		Method mcount;
+		try {
+			mcount = c.getMethod(strCount, null);
+			Object obj1 = mcount.invoke(product, null);
+			if(obj1 == null)
+				return -1;
+			int tempi = (Integer)obj1;
+			return tempi;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	
 	// 在materialList中根据id查找material
 	private Material findById(int id) {
 		if(materialList == null)
