@@ -54,8 +54,9 @@ public class ProductAdd extends JDialog{
 	// 需要扣件材料的数目，理论上应该和verifyList长度相等
 	List<Integer> countList = new ArrayList<Integer>();
 	
-	// 修改商品时，需要恢复的数量
-	// List<Integer> oldCountList = new ArrayList<Integer>();
+	// 修改商品时，需要扣减的新的商品的数量
+	List<Integer> newVerifyIdList = new ArrayList<Integer>();
+	List<Integer> newCountList = new ArrayList<Integer>();
 	
 	JPanel contentPane;
 	JPanel jPanelInfo = new JPanel();
@@ -423,6 +424,8 @@ public class ProductAdd extends JDialog{
 					materialList = materialService.findBySql(HQL_MODIFY);
 					// 1、恢复旧材料的数目
 					ProductTool.simulateSplit(product, verifyIdList, countList, materialList, materialService, true, true);
+					// 2、扣减新的所需材料数目
+					ProductTool.simulateSplit(product, newVerifyIdList, newCountList, materialList, materialService, true, false);
 					// 使用java的反射机制，批量函数操作
 					try {
 						Class c = product.getClass();
@@ -432,10 +435,6 @@ public class ProductAdd extends JDialog{
 							int tempCount = numberModel[i].getNumber().intValue();
 	//						if (tempCount <= 0)
 	//							continue;
-							
-							// 2、扣减新的所需材料数目
-							ProductTool.simulateSplit(product, verifyIdList, countList, materialList, materialService, true, false);
-							
 							// 3、保存product的材料参数
 							String strId = "setMaterialByMid" + (i + 1);
 							String strCount = "setMcount" + (i + 1);
@@ -510,9 +509,8 @@ public class ProductAdd extends JDialog{
 							+ "， 需要数目（材料数*商品数）：" + tempi + " * " + product.getCount() + " = " + tempi * product.getCount());
 					return false;
 				} else {
-					verifyList.add(tempm);
-					verifyIdList.add(tempm.getId());
-					countList.add(tempi);
+					newVerifyIdList.add(tempm.getId());
+					newCountList.add(tempi);
 				}
 			}
 		} catch (Exception e) {
