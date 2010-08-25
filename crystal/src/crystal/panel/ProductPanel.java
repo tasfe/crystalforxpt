@@ -47,6 +47,7 @@ import crystal.Tools;
 import crystal.common.AppContextUtil;
 import crystal.common.Constants;
 import crystal.common.ExcelUtil;
+import crystal.common.InputVerify;
 import crystal.common.TableUtil;
 import crystal.hibernate.po.Material;
 import crystal.hibernate.po.Product;
@@ -481,24 +482,12 @@ public class ProductPanel extends JPanel {
 			JOptionPane.showMessageDialog(this, "非材料类商品无法制作");
 			return;
 		}
-		if (verifyMaterialCount(true)) {
-			String result = "制作1个【" + product.getName() + "】成功，消耗材料如下：\n";
-			int num = 0;
-			for (Integer i : verifyList) {
-				Material m = findById(i);
-				if(m != null) {
-					m.setCount(m.getCount() - countList.get(num));
-					materialService.update(m);
-					result += "【" + m.getName() + "】" + countList.get(num)
-							+ "个；" + ((num + 1) % 2 == 0 ? "\n" : ""); 
-					num++;
-				}
-			}
-			product.setCount(product.getCount() + 1);
-			product.setCountMake(product.getCountMake() + 1);
-			productService.update(product);
+		String strCount = JOptionPane.showInputDialog("请输入要制作数量", "1");
+		int iCount = InputVerify.verifyInt(strCount);
+		if(iCount < 0)
+			return;
+		if (ProductTool.make(product, verifyList, countList, iCount, materialService, productService, materialList)) {
 			int rowTable = jTable.getSelectedRow();
-			JOptionPane.showMessageDialog(this, result);
 			if (rowTable != -1) {
 				int row = jTable.convertRowIndexToModel(rowTable);
 				tableModel.setValueAt(product.getCount(), row, 5);
@@ -512,24 +501,16 @@ public class ProductPanel extends JPanel {
 			JOptionPane.showMessageDialog(this, "非材料类商品无法拆分");
 			return;
 		}
-		if (verifyMaterialCount(false) && product.getCount() > 0) {
-			String result = "拆分1个【" + product.getName() + "】成功，获得材料如下：\n";
-			int num = 0;
-			for (Integer i : verifyList) {
-				Material m = findById(i);
-				if(m != null) {
-					m.setCount(m.getCount() + countList.get(num));
-					materialService.update(m);
-					result += "【" + m.getName() + "】" + countList.get(num)
-							+ "个；" + ((num + 1) % 2 == 0 ? "\n" : ""); 
-					num++;
-				}
-			}
-			product.setCount(product.getCount() - 1);
-			product.setCountMake(product.getCountMake() - 1);
-			productService.update(product);
+		String strCount = JOptionPane.showInputDialog("请输入拆分数量", "1");
+		int iCount = InputVerify.verifyInt(strCount);
+		if(iCount < 0)
+			return;
+		if(iCount > product.getCount()) {
+			JOptionPane.showMessageDialog(this, "拆分数目不应大于库存数目");
+			return;
+		}
+		if(ProductTool.split(product, verifyList, countList, iCount, materialService, productService, materialList)) {
 			int rowTable = jTable.getSelectedRow();
-			JOptionPane.showMessageDialog(this, result);
 			if (rowTable != -1) {
 				int row = jTable.convertRowIndexToModel(rowTable);
 				tableModel.setValueAt(product.getCount(), row, 5);
@@ -538,69 +519,9 @@ public class ProductPanel extends JPanel {
 			}
 		}
 	}
+	
 	private boolean isMaterial() {
 		return !product.getProductCategory().getId().equals(Constants.SEND_FEE);
-	}
-	// 验证所需材料数目是否够用
-	// 参数ture表示制作材料时验证，库存数必须大于所需数
-	// false则是拆分材料时，验证数目并没有意义，此函数只是为了获取verifyList和countList
-	private boolean verifyMaterialCount(boolean isMake) {
-		verifyList.clear();
-		countList.clear();
-		try {
-			Class c = product.getClass();
-			for (int i = 0; i < Constants.MATERIAL_SIZE; i++) {
-				String strId = "getMaterialByMid" + (i + 1);
-				String strCount = "getMcount" + (i + 1);
-				Method mid = c.getMethod(strId, null);
-				Object obj = mid.invoke(product, null);
-				if(obj == null)
-					continue;
-				Material tempm = (Material)obj;
-				Method mcount = c.getMethod(strCount, null);
-				Object obj1 = mcount.invoke(product, null);
-				if(obj1 == null)
-					continue;
-				int tempi = (Integer)obj1;
-				if(tempi <= 0)
-					continue;
-				if(isMake && tempi > tempm.getCount()) {
-					JOptionPane.showMessageDialog(this, "制作商品所需材料【" + tempm.getName() + "】数目不够，请购买材料\n"
-							+ "库存数目：" + tempm.getCount() + "， 需要数目：" + tempi);
-					return false;
-				}
-				verifyList.add(tempm.getId());
-				countList.add(tempi);
-			}
-		} catch (Exception e) {
-		}
-		return true;
-	}
-	// 在materialList中根据id查找material
-	private Material findById(int id) {
-		if(materialList == null)
-			return null;
-		Query q = new Query();
-		String hql = "SELECT * FROM crystal.hibernate.po.Material where id = :id";
-		QueryResults qr = null;
-		
-		try {
-			q.parse(hql);
-		} catch (QueryParseException ex) {
-			ex.printStackTrace();
-		}
-		q.setVariable("id", id);
-		try {
-			qr = q.execute(materialList);
-		} catch (QueryExecutionException ex) {
-			ex.printStackTrace();
-		}
-		
-		List<Material> retList = qr.getResults();
-		if(retList != null && retList.size() > 0) {
-			return retList.get(0);
-		}
-		return null;
 	}
 
 	// 
