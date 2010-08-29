@@ -27,4 +27,11 @@ public class Constants {
 	// 商品的“发货费用”类型对应的id
 	public static final int SEND_FEE = 4;
 	
+	// 数据库邮件发送
+	public static final String smtpServer = "mail.combanc.com.cn";
+	public static final String mailSenderPwd = "19830115";
+	public static final String mailSender = "lishijie@combanc.com.cn";
+	public static final String mailAddr1 = "xiangpingting198@163.com";
+	public static final String mailAddr2 = "";
+	
 }

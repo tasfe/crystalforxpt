@@ -13,8 +13,8 @@ public class BackupService {
 		this.backupDAO = backupDAO;
 	}
 
-	public void export(String path, int type) throws SQLException, IOException {
-		backupDAO.export(path, type);
+	public void export(String path) throws SQLException, IOException {
+		backupDAO.export(path);
 	}
 
 	public void importMysql(String fileName, String fileNameHis, int type)

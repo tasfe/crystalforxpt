@@ -20,7 +20,7 @@ public class BackupDAO extends BaseHibernateDAO<Material, Integer> {
 	final int CONF = 1;
 	final int HISTORY = 2;
 
-	public void export(String path, int type) throws SQLException, IOException {
+	public void export(String path) throws SQLException, IOException {
 		Export export = new ExportMySQL();
 		SessionFactory o = this.getSessionFactory();
 		DataSource ds = SessionFactoryUtils.getDataSource(o);
