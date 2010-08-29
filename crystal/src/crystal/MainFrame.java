@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
 
@@ -53,6 +54,7 @@ import com.borland.dx.dataset.TextDataFile;
 
 import crystal.common.AppContextUtil;
 import crystal.common.Constants;
+import crystal.common.DatabaseMail;
 import crystal.common.data.IniReader;
 import crystal.service.BackupService;
 
@@ -956,7 +958,7 @@ public class MainFrame extends JFrame {
 						jTimer_actionPerformed(e);
 					}
 				});
-		timer.start();
+		// timer.start();
 
 		Logo.progress.setValue(60);
 		Logo.progress.setString(startStr + "60%");
@@ -1126,7 +1128,7 @@ public class MainFrame extends JFrame {
 		final String dir = chooser.getSelectedFile().toString();
 		// 备份sql数据库
 		try {
-			backupService.export(dir, backupType);
+			backupService.export(dir);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -1291,11 +1293,13 @@ public class MainFrame extends JFrame {
 
 	protected void processWindowEvent(WindowEvent e) {
 		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-			int confirm = JOptionPane.showConfirmDialog(this, "退出" + Constants.softName + "？",
+			/*int confirm = JOptionPane.showConfirmDialog(this, "退出" + Constants.softName + "？",
 					"退出", JOptionPane.YES_NO_OPTION);
 			if (confirm == JOptionPane.YES_OPTION) {
 				exit();
 			}
+			*/
+			exit();
 		}
 	}
 	
@@ -1347,11 +1351,14 @@ public class MainFrame extends JFrame {
 	}
 	
 	void trayExit_actionPerformed(ActionEvent e) {
-		int confirm = JOptionPane.showConfirmDialog(this, "退出基线网络监控管理系统？",
+		/*
+		int confirm = JOptionPane.showConfirmDialog(this, "退出" + Constants.softName + "？",
 				"退出", JOptionPane.YES_NO_OPTION);
 		if (confirm == JOptionPane.YES_OPTION) {
 			exit();
 		}
+		*/
+		exit();
 	}
 	
 	void jMenuFont_actionPerformed(ActionEvent e) {
@@ -1400,16 +1407,39 @@ public class MainFrame extends JFrame {
 	
 	private void exit() {
 		// 为了安全起见，保证线程和数据库顺利关闭，确保下一次成功重入，采用以下方式。
-
 		// 停止Timer.
-		timer.stop();
-		// alertTable.myExit();
+		// timer.stop();
+		
+		int confirm = JOptionPane.showConfirmDialog(this, "是否备份数据库并将数据库发送到" + Constants.mailAddr1+ "？",
+				"退出备份数据库", JOptionPane.YES_NO_OPTION);
+		if (confirm == JOptionPane.YES_OPTION) {
+			// 自动备份数据库
+			GregorianCalendar now = new GregorianCalendar();
+			String dir = InstallPath + "database-backup\\" + now.get(Calendar.YEAR)
+					+ "-" + (now.get(Calendar.MONTH) + 1) + "-"
+					+ now.get(Calendar.DAY_OF_MONTH) + "\\";
+			File f = new File(dir);
+			if(!f.exists())
+				f.mkdirs();
+			try {
+				backupService.export(dir);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("配置备份完毕。请勿修改配置备份，否则无法恢复。\n" + "配置位于：" + dir);
+			
+			// 先隐藏主窗口，防止发送邮件时长时间等待
+			this.setVisible(false);
+			
+			// 将数据库备份发送到指定邮箱
+			DatabaseMail mail = new DatabaseMail();
+			mail.setBackupPath(dir);
+			mail.run();
+		}
 		querySelect.myexit();
 		dispose();
-		/*
-		 * //addCode 2009-03-20 软件自动重启 try { restart(); }catch(IOException e) {
-		 * System.out.println("重启程序失败！…………"); }
-		 */
 		//仅当至少又一次minimize的时候才会初始化systemTray
 		if(systemTray != null)
 			systemTray.remove(trayIcon);
@@ -1420,9 +1450,6 @@ public class MainFrame extends JFrame {
 	void jTimer_actionPerformed(ActionEvent e) {
 		return;
 	}
-
-	
-	
 
 	// 添加自定义用户：
 	void jMenuUserAdd_actionPerformed(ActionEvent e) {
