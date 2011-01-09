@@ -63,6 +63,7 @@ public class AboutBox extends JDialog implements ActionListener {
   }
   //Component initialization
   private void jbInit() throws Exception  {
+	  
     imageLabel.setIcon(MainFrame.imageCrystal);
     this.setTitle("¹ØÓÚ");
     setResizable(false);
