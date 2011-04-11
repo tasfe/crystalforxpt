@@ -1,0 +1,28 @@
+ALTER TABLE assets_base CHANGE value_unit value_unit INT(11) 默认值设为0
+ALTER TABLE assets_base CHANGE des des INT(11)  默认值设为0
+ALTER TABLE assets_base CHANGE maintainance_cost maintainance_cost INT(11) 默认值设为0
+ALTER TABLE assets_base CHANGE persion_tel buildlocation INT(11);
+ALTER TABLE assets_base CHANGE persion_mail itsmtype INT(11);
+
+
+ALTER TABLE assets_type ADD  COLUMN CODE VARCHAR(255);
+ALTER TABLE assets_type ADD  COLUMN countryname VARCHAR(255);
+ALTER TABLE assets_type ADD  COLUMN countryCODE VARCHAR(255);
+
+CREATE TABLE `BuildLocation` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) DEFAULT NULL ,
+  `pid` INT(11) DEFAULT NULL,
+  `code` VARCHAR(100) DEFAULT NULL,
+  `allname` VARCHAR(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8
+
+CREATE TABLE `itsm_type` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
+  `pid` INT(11) DEFAULT NULL,
+  `code` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

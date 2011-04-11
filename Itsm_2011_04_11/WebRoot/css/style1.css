@@ -1,0 +1,105 @@
+img{border:0px;}
+body{
+font-size:12px;
+line-height:24px;}
+select{
+	font-size:12px;
+}
+td{font-size:12px;
+}
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+a:active {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+a.linkwhite:link {
+	color: #ffffff;
+	text-decoration: none;
+}
+a.linkwhite:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+a.linkwhite:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+a.linkwhite14px:link {
+	color: #ffffff;
+	font-size:14px;
+	text-decoration: none;
+}
+a.linkwhite14px:visited {
+	color: #ffffff;
+	font-size:14px;
+	text-decoration: none;
+}
+a.linkwhite14px:hover {
+	color: #ffffff;
+	font-size:14px;
+	text-decoration: underline;
+}
+.mytd30pxheight{
+	line-height:28px;
+	font-size:12px;
+	padding-left:5px;
+	}
+.content{
+	font-size:14px;
+	line-height:24px;
+	padding-left:40px;
+	padding-right:40px;
+	}
+.contentgitle{
+	font-size:18px;
+	font-weight:bold;
+	color:#FF3300;
+	line-height:40px;
+	}
+.contitle_14b{
+	font-size:14px;
+	font-weight:bold;
+}
+.notpicjpkc{
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	}
+.con-white{
+	font-size:12px;
+	color:#FFFFFF;
+	}
+.subtitle01{
+	font-size:12px;
+	font-weight:bold;
+	color:#30789e;
+	}
+.detailtitle{
+	font-size:16px;
+	color:#333333;
+	font-weight:bold;
+	}
+.detailtitle2{
+	font-family:"Times New Roman", Times, serif;
+	font-size:12px;
+	color:#ffffff;
+	font-weight:bold;
+	}
+.listtitle{
+	font-size:14px;
+	font-weight:bold;
+	color:#4f6269;
+	}
