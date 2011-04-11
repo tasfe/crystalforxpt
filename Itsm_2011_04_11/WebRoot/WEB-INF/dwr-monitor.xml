@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN" "http://getahead.org/dwr/dwr30.dtd">
+<dwr>
+	<allow>
+	<create creator="spring" javascript="MonitorDeviceTypeDAO">
+		<param name="beanName" value="MonitorDeviceTypeDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorDeviceType">
+		<param name="include" value="code,name" />
+	</convert>
+	
+	<create creator="spring" javascript="MonitorVendorMacDAO">
+		<param name="beanName" value="MonitorVendorMacDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorVendorMac">
+		<param name="include" value="id,mac,name" />
+	</convert>
+
+	<create creator="spring" javascript="MonitorSubnetTypeDAO">
+		<param name="beanName" value="MonitorSubnetTypeDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorSubnetType" >
+		<param name="include" value="code,name" />
+	</convert>
+	
+	<create creator="spring" javascript="MonitorDeviceDAO">
+		<param name="beanName" value="MonitorDeviceDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorDevice">
+		<param name="include" value="ip,name,description,mac,readCommunity,nameCn,monitorDeviceType" />
+	</convert>		
+	
+	<create creator="spring" javascript="MonitorDeviceService">
+		<param name="beanName" value="MonitorDeviceService" />
+	</create> 
+	
+	<create creator="spring" javascript="MonitorSubnetDAO">
+		<param name="beanName" value="MonitorSubnetDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorSubnet" javascript="subnet">
+		<param name="include" value="id,name,monitorSubnetType,scan,start,centerIp" />
+	</convert>
+	
+	<create creator="spring" javascript="MonitorSubnetService">
+		<param name="beanName" value="MonitorSubnetService" />
+	</create> 
+	
+	<create creator="spring" javascript="customerTypeDAO">
+		<param name="beanName" value="customerTypeDAO" />
+	</create>
+	<convert converter="bean" match="com.combanc.itsm.pojo.CustomerType">
+		<param name="include" value="id,name,value" />
+	</convert>
+	<create creator="spring" javascript="MonitorAlertTypeService">
+		<param name="beanName" value="MonitorAlertTypeService" />
+	</create> 
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorAlertType">
+		<param name="include" value="code,name" />
+	</convert>
+	
+	<create creator="spring" javascript="MonitorAlertSmalltypeService">
+		<param name="beanName" value="MonitorAlertSmalltypeService" />
+	</create> 
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorAlertSmalltype">
+		<param name="include" value="code,name" />
+	</convert>
+	<create creator="spring" javascript="MonitorAlertPolicyService">
+		<param name="beanName" value="MonitorAlertPolicyService" />
+	</create> 
+	<create creator="spring" javascript="ScanLoopTimer">
+		<param name="beanName" value="ScanLoopTimer" />
+	</create>  
+	<create creator="spring" javascript="DwrService">
+		<param name="beanName" value="DwrService" />
+	</create> 
+	
+	<create creator="spring" javascript="MonitorArpAlertWhiteMacService">
+		<param name="beanName" value="MonitorArpAlertWhiteMacService" />
+	</create> 
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorArpAlertWhiteMac">
+		<param name="include" value="id,mac" />
+	</convert>
+	
+	<create creator="spring" javascript="ServiceRequestStatisticService">
+		<param name="beanName" value="serviceRequestStatisticService" />
+	</create>
+	
+	<create creator="spring" javascript="MonitorInterfaceCacheService">
+		<param name="beanName" value="MonitorInterfaceCacheService" />
+	</create> 
+	
+	<convert converter="bean" match="com.combanc.monitor.pojo.MonitorInterfaceCache">
+		<param name="include" value="interface_,description" />
+	</convert>
+	
+	 </allow>
+</dwr>
