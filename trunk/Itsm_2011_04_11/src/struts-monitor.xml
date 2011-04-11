@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="monitor" extends="struts-default" >
+	</package>
+
+    <package name="monitorDevice" extends="monitor" namespace="/monitorDevice">
+        <!-- 显示出所有列表  -->
+        <action name="deviceList" method="list" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceList.jsp</result>
+        </action>
+		<!-- 添加设备输入 -->
+        <action name="addInput" method="addInput" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceAdd.jsp</result>
+        </action>
+        <!-- 保存设备 -->
+        <action name="deviceAdd" method="save" class="MonitorDeviceAction">
+        	<result name="success" type="chain">deviceList</result>
+        	<result name="subnetDevices" type="redirectAction">
+       		 	<param name="actionName">devices?subnetId=${subnetId}</param>  
+				<param name="namespace">/monitorSubnet</param> 
+       		</result>
+        </action>
+        <!-- 更新设备输入 -->
+        <action name="updateInput" method="updateInput" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceAdd.jsp</result>
+        </action>
+        <!-- 更新设备 -->
+        <action name="deviceUpdate" method="update" class="MonitorDeviceAction">
+        	<result name="success" type="chain">deviceList</result>
+        	<result name="subnetDevices" type="redirectAction">
+       		 	<param name="actionName">devices?subnetId=${subnetId}</param>  
+				<param name="namespace">/monitorSubnet</param> 
+       		</result>
+        </action>
+        <!-- 查找设备输入 -->
+        <action name="queryInput" method="queryInput" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceQuery.jsp</result>
+        </action>
+        <!-- 查找设备 -->
+        <action name="deviceQuery" method="query" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceList.jsp</result>
+        </action>
+        
+        <!-- 查看设备详情 -->
+        <action name="detail" method="detail" class="MonitorDeviceAction">
+        	<result name="success">/monitor/device/deviceDetail.jsp</result>
+        </action>
+        <!-- 删除设备 -->
+        <action name="deviceDelete" method="delete" class="MonitorDeviceAction">
+        	<result name="success" type="chain">deviceList</result>
+        	<result name="subnetDevices" type="redirectAction">
+       		 	<param name="actionName">devices?subnetId=${subnetId}</param>  
+				<param name="namespace">/monitorSubnet</param> 
+       		</result>
+        </action>
+        
+        <!-- 搜索设备 -->
+        <action name="searchInput" method="searchInput" class="MonitorDeviceAction">
+        	<result name="success" type="dispatcher">/monitor/device/deviceSearch.jsp</result>
+        </action>
+        <action name="deviceSearch" method="searchResult" class="MonitorDeviceAction">
+       		<result name="success" type="dispatcher">/monitor/device/searchResult.jsp</result>
+        </action>
+        <!-- 搜索设备保存 -->
+        <action name="searchSave" method="searchSave" class="MonitorDeviceAction">
+       		<result name="success" type="redirectAction">deviceList</result>
+       		
+       		<!-- 重定向到包外的action需要配置以下两个属性，包内则<result name="success" type="redirectAction">aa</result>即可 -->
+       		<result name="subnet" type="redirectAction">
+       		 	<param name="actionName">devices?subnetId=${subnetId}</param>  
+				<param name="namespace">/monitorSubnet</param> 
+       		</result>
+        </action>
+        
+        <!-- 查看设备接口 -->
+        <action name="deviceInterface" method="deviceInterface" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/deviceInterface.jsp</result>
+        </action>
+        
+        <!-- 查看CPU历史 -->
+        <action name="cpuHistory" method="cpuHistory" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/cpuHistory.jsp</result>
+        </action>
+        
+        <!-- CPU测控 -->
+        <action name="cpuMonitor" method="cpuMonitor" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/cpuMonitor.jsp</result>
+        </action>
+        <action name="getRealTimeCpuData" method="getRealTimeCpuData" class="MonitorRealTimeDataAction">
+        </action>
+        <!-- 温湿度测控 -->
+        <action name="akcpMonitor" method="akcpMonitor" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/akcpMonitor.jsp</result>
+        </action>
+        <action name="getRealTimeAkcpData" method="getRealTimeAkcpData" class="MonitorRealTimeDataAction">
+        </action>
+        <!-- 接口测控 -->
+        <action name="interfaceMonitor" method="interfaceMonitor" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/interfaceMonitor.jsp</result>
+        </action>
+        <action name="getRealTimeInterfaceData" method="getRealTimeInterfaceData" class="MonitorRealTimeDataAction">
+        </action>
+        
+        <!-- 查看接口历史流量 -->
+        <action name="interfaceHistory" method="interfaceHistory" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/interfaceHistory.jsp</result>
+        </action>
+        
+        <!-- 实时设备可用性-->
+        <action name="getRealTimeAvailabilityData" method="getRealTimeAvailabilityData" class="MonitorRealTimeDataAction">
+        </action>
+        <!-- 设备ARP表 -->
+        <action name="deviceArpList" method="deviceArpList" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/deviceArpList.jsp</result>
+        </action>
+         <!-- 设备MAC转发表 -->
+        <action name="deviceMacList" method="deviceMacList" class="MonitorDeviceAction">
+       		<result name="success">/monitor/device/deviceMacList.jsp</result>
+        </action>
+         <!-- 查看全部关键接口 -->
+        <action name="keyInterfaceList" method="list" class="MonitorKeyInterfaceAction">
+       		<result name="success">/monitor/device/keyInterfaceList.jsp</result>
+        </action>
+         <!-- 删除关键接口-->
+        <action name="keyInterfaceDelete" method="delete" class="MonitorKeyInterfaceAction">
+        	<result name="success" type="redirectAction">keyInterfaceList</result>
+        </action>
+        <!-- 开始监测关键接口-->
+        <action name="enableMonitoring" method="enableMonitoring" class="MonitorKeyInterfaceAction">
+        	<result name="success" type="redirectAction">keyInterfaceList</result>
+        </action>
+        <!-- 停止监测关键接口-->
+        <action name="desableMonitoring" method="desableMonitoring" class="MonitorKeyInterfaceAction">
+        	<result name="success" type="redirectAction">keyInterfaceList</result>
+        </action>
+    </package>
+    
+    <package name="subnet" extends="struts-default" namespace="/monitorSubnet">
+    	<!-- 显示分区列表 -->
+		<action name="subnetList" method="list" class="MonitorSubnetAction">
+			<result name="success">/monitor/subnet/tree.jsp</result>
+			<!-- <result name="success">/monitor/subnet/subnetList.jsp</result>  edit by dongyp -->
+			<result name="input">/monitor/subnet/subnetList.jsp</result>
+		</action>
+		 
+		<!-- 添加分区 -->
+		<action name="addInput" method="addInput" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetAdd.jsp</result>
+        	<result name="input">/monitor/subnet/subnetAdd.jsp</result>
+        </action>
+        <!-- 保存添加分区 -->
+        <action name="subnetSave" method="save" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetList.jsp</result>
+        	<result name="input">/monitor/subnet/subnetAdd.jsp</result>
+        </action>
+         <action name="subnetSaveNext" method="save" class="MonitorSubnetAction">
+        	<result name="success" type="chain">updateInput</result>
+        	<result name="input">/monitor/subnet/subnetAdd.jsp</result>
+        </action>
+        <!-- 删除分区 -->
+        <action name="subnetDelete" method="delete" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetList.jsp</result>
+        </action>
+		<!-- 修改分区 -->
+		<action name="updateInput" method="updateInput" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetUpdate.jsp</result>
+        	<result name="input">/monitor/subnet/subnetUpdate.jsp</result>
+        </action>
+        <!-- 保存修改分区 -->
+        <action name="subnetUpdate" method="update" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetList.jsp</result>
+        	<result name="input">/monitor/subnet/subnetUpdate.jsp</result>
+        </action>
+         <!-- 添加或者删除分区 内网络设备-->
+        <action name="subnetDeleteDevice" method="deleteDevice" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetDevices.jsp</result>
+        	<result name="input">/monitor/subnet/subnetDevices.jsp</result>
+        </action>
+        <!-- 拓扑发现 -->
+        <action name="linkportDiscovery" method="linkportDiscovery" class="MonitorSubnetAction">
+        	<result name="success" type="redirectAction">initTopology</result>
+        </action>
+        <!-- 初始化拓扑图 -->
+        <action name="initTopology" method="initTopology" class="MonitorSubnetAction">
+        	<result name="success" >/monitor/subnet/subnetTopology.jsp</result>
+        </action>
+        <!-- 查看分区 -->
+		<action name="detail" method="detail" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetDetail.jsp</result>
+        </action>
+        <!-- 查看分区设备列表 -->
+		<action name="devices" method="devices" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetDevices.jsp</result>
+        </action>
+        <!-- 查看分区dashboard -->
+		<action name="dashboard" method="dashboard" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/subnetDashboard.jsp</result>
+        </action>
+        <!-- 选择设备 -->
+        <action name="selectDevices" method="selectDevices" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/selectDevices.jsp</result>
+        	 <result name="input">/monitor/subnet/selectDevices.jsp</result>
+        </action>
+        <!-- 查看互连端口 -->
+		<action name="linkportList" method="linkportList" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/linkportList.jsp</result>
+        </action>
+        <!-- 删除互连端口 -->
+        <action name="deleteLinkport" method="deleteLinkport" class="MonitorSubnetAction">
+        	<result name="success" type="chain">linkportList</result>
+        	<result name="input">/monitor/subnet/linkportList.jsp</result>
+        </action>
+         <!-- 选择其他子网的互连端口 -->
+        <action name="selectLinkport" method="selectLinkport" class="MonitorSubnetAction">
+        	<result name="success">/monitor/subnet/selectLinkport.jsp</result>
+        	 <result name="input">/monitor/subnet/selectLinkport.jsp</result>
+        </action>
+        
+         <!-- 导入他子网的互连端口 -->
+        <action name="addLinkports" method="addLinkports" class="MonitorSubnetAction">
+        	<result name="success" type="chain">linkportList</result>
+        	 <result name="input">/monitor/subnet/linkportList.jspp</result>
+        </action>
+	</package>
+	
+	<package name="monitorComputer" extends="monitor" namespace="/monitorComputer">
+        <!-- 显示出所有列表  -->
+        <action name="computerList" method="list" class="MonitorComputerAction">
+        	<result name="success" type="dispatcher">/monitor/computer/computerList.jsp</result>
+        </action>
+        <action name="computerQuery" method="query" class="MonitorComputerAction">
+        	<result name="success" type="dispatcher">/monitor/computer/computerList.jsp</result>
+        </action>
+        <!-- 删除 -->
+        <action name="computerDelete" method="delete" class="MonitorComputerAction">
+        	<result name="success" type="redirectAction">computerList</result>
+        </action>
+        <!-- 修改  -->
+		<action name="updateInput" method="updateInput" class="MonitorComputerAction">
+        	<result name="success">/monitor/computer/computerUpdate.jsp</result>
+        	<result name="input">/monitor/computer/computerUpdate.jsp</result>
+        </action>
+        <!-- 保存修改  -->
+        <action name="computerUpdate" method="update" class="MonitorComputerAction">
+        	<result name="success" type="redirectAction">computerList</result>
+        	<result name="input">/monitor/computer/computerUpdate.jsp</result>
+        </action>
+    </package>
+     <!-- topN-->
+    <package name="monitorTopN" extends="monitor" namespace="/monitorTopN">
+        <!-- 显示出所有列表  -->
+        <action name="listAll" method="listAll" class="MonitorTopNAction">
+        	<result name="success" type="dispatcher">/monitor/topN/topN.jsp</result>
+        </action>
+    </package>
+ 	<!-- topN end-->
+ 	
+ 	 <!-- system settings-->
+    <package name="systemSettings" extends="monitor" namespace="/monitorSystemSettings">
+        <!-- 阈值  -->
+        <action name="thresholdSetting" method="thresholdSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/thresholdSetting.jsp</result>
+        </action>
+        <action name="saveThresholdSetting" method="saveThresholdSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/thresholdSetting.jsp</result>
+        </action>
+         <!-- 阈值 end -->
+         <!-- 计算机扫描 -->
+        <action name="computerScanSetting" method="computerScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/computerScanSetting.jsp</result>
+        </action>
+         <action name="saveComputerScanSetting" method="saveComputerScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/computerScanSetting.jsp</result>
+        </action>
+         <!-- 计算机扫描 end-->
+         <!-- 流量及CPU采集 -->
+        <action name="fluxScanSetting" method="fluxScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/fluxScanSetting.jsp</result>
+        </action>
+         <action name="saveFluxScanSetting" method="saveFluxScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/fluxScanSetting.jsp</result>
+        </action>
+         <!-- 流量及CPU采集 end-->
+         <!-- 拓扑 -->
+        <action name="topologyScanSetting" method="topologyScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/topologyScanSetting.jsp</result>
+        </action>
+         <action name="saveTopologyScanSetting" method="saveTopologyScanSetting" class="MonitorSystemSettingsAction">
+         	
+           		<!-- 配置fileUpload的拦截器 -->  
+                 <interceptor-ref name="fileUpload">  
+                            <!-- 配置允许上传的文件类型 -->  
+                   <param name="allowedTypes">  
+                      image/bmp,image/png,image/gif,image/jpeg,image/pjpeg,image/jpg 
+                   </param>  
+                            <!-- 配置允许上传的文件大小 -->  
+                   <param name="maximumSize">2000000000</param>  
+                 </interceptor-ref>  
+                 <interceptor-ref name="defaultStack" />   
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/topologyScanSetting.jsp</result>
+        </action>
+         <!-- 拓扑 end-->
+         
+         <!-- 故障扫描 -->
+        <action name="faultScanSetting" method="faultScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/faultScanSetting.jsp</result>
+        </action>
+         <action name="saveFaultScanSetting" method="saveFaultScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/faultScanSetting.jsp</result>
+        </action>
+        <!-- 故障扫描 end -->
+        <!-- Ping扫描设置 -->
+        <action name="pingScanSetting" method="pingScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/pingScanSetting.jsp</result>
+        </action>
+         <action name="savePingScanSetting" method="savePingScanSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/pingScanSetting.jsp</result>
+        </action>
+        <action name="deleteTimePoint" method="deleteTimePoint" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">pingScanSetting</result>
+        </action>
+         <action name="saveTimePoint" method="saveTimePoint" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">pingScanSetting</result>
+        </action>
+         <!-- Ping扫描设置 end -->
+        <!-- 系统其它设置 -->
+        <action name="otherSetting" method="otherSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/otherSetting.jsp</result>
+        </action>
+         <action name="saveOtherSetting" method="saveOtherSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/otherSetting.jsp</result>
+        </action>
+         <!-- 系统其它设置 end-->
+         <!-- 报警设置 -->
+        <action name="alertSetting" method="alertSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/alertSetting.jsp</result>
+        </action>
+         <action name="saveAlertSetting" method="saveAlertSetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/alertSetting.jsp</result>
+        </action>
+         <!-- 报警设置 end-->
+         <!-- 报警策略设置 -->
+        <action name="alertPolicySetting" method="alertPolicySetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/alertPolicySetting.jsp</result>
+        </action>
+         <action name="saveAlertPolicySetting" method="saveAlertPolicySetting" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/alertPolicySetting.jsp</result>
+        </action>
+        <action name="relievePolicy" method="relievePolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        </action>
+        <action name="applyPolicy" method="applyPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        </action>
+        <action name="alertPolicy" method="alertPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/alertPolicy.jsp</result>
+        </action>
+        <action name="saveAlertPolicy" method="saveAlertPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        	<result name="input">/monitor/manage/alertPolicy.jsp</result>
+        </action>
+         <action name="deleteAlertPolicy" method="deleteAlertPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        	<result name="input">/monitor/manage/alertPolicySetting.jsp</result>
+        </action>
+        <action name="addAlertPolicy" method="addAlertPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        	<result name="input">/monitor/manage/alertPolicySetting.jsp</result>
+        </action>
+        <action name="cloneAlertPolicy" method="cloneAlertPolicy" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">alertPolicySetting</result>
+        	<result name="input">/monitor/manage/alertPolicySetting.jsp</result>
+        </action>
+        <!-- 报警策略设置 end-->
+         <!-- ARP报警白名单设置 -->
+        <action name="arpAlertWhiteMacSetting" method="arpAlertWhiteMacSetting" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/arpAlertWhiteMacList.jsp</result>
+        	<result name="input">/monitor/error.jsp</result>
+        </action>
+        <action name="deleteArpAlertWhileMac" method="deleteArpAlertWhileMac" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">arpAlertWhiteMacSetting</result>
+        	<result name="input">/monitor/error.jsp</result>
+        </action>
+         <action name="addArpAlertWhileMac" method="addArpAlertWhileMac" class="MonitorSystemSettingsAction">
+        	<result name="success" type="redirectAction">arpAlertWhiteMacSetting</result>
+        	<result name="input">/monitor/error.jsp</result>
+        </action>
+         <!-- ARP报警白名单 end--> 
+        <!-- 数据保存时间设置 -->
+        <action name="dataKeepTime" method="dataKeepTime" class="MonitorSystemSettingsAction">
+        	<result name="success" type="dispatcher">/monitor/manage/dataKeepTimeSetting.jsp</result>
+        </action>
+         <action name="saveDataKeepTime" method="saveDataKeepTime" class="MonitorSystemSettingsAction">
+        	<result name="success">/monitor/manage/settings.jsp</result>
+        	<result name="input">/monitor/manage/dataKeepTimeSetting.jsp</result>
+        </action>
+         <!-- 数据保存时间设置 end-->
+    </package>
+ 	<!-- system settings end-->
+ 	
+ 	 <!-- log -->
+    <package name="monitorLog" extends="monitor" namespace="/monitorLog">
+     	<!--计算机扫描接入日志-->
+    	<action name="accessLogList" method="accessLogList" class="MonitorLogAction">
+        	<result name="success" type="dispatcher">/monitor/log/accessLogList.jsp</result>
+        </action>
+        <action name="queryAccessLog" method="queryAccessLog" class="MonitorLogAction">
+        	<result name="success" >/monitor/log/accessLogList.jsp</result>
+        </action>
+        <action name="arpLogList" method="arpLogList" class="MonitorLogAction">
+        	<result name="success" type="dispatcher">/monitor/log/arpLogList.jsp</result>
+        </action>
+        <action name="queryArpLog" method="queryArpLog" class="MonitorLogAction">
+        	<result name="success" >/monitor/log/arpLogList.jsp</result>
+        </action>
+     </package>
+ 	<!-- log end-->
+ 	
+ 	 <!-- alert-->
+    <package name="monitorAlert" extends="monitor" namespace="/monitorAlert">
+        <!-- 显示出所有类别的报警 -->
+        <action name="listAll" method="listAll" class="MonitorAlertAction">
+        	<result name="success" type="dispatcher">/monitor/alert/alertList.jsp</result>
+        </action>
+        <action name="listByCondition" method="listByCondition" class="MonitorAlertAction">
+        	<result name="success" type="dispatcher">/monitor/alert/listByCondition.jsp</result>
+        </action>
+        <action name="delete" method="delete" class="MonitorAlertAction">
+        	<result name="success" type="redirectAction">listAll</result>
+        </action>
+        <action name="searchInput" method="searchInput" class="MonitorAlertAction">
+        	<result name="success" type="dispatcher">/monitor/alert/searchInput.jsp</result>
+        </action>
+        <action name="searchResult" method="searchResult" class="MonitorAlertAction">
+        	<result name="success" type="dispatcher">/monitor/alert/listByCondition.jsp</result>
+        	<result name="input" >/monitor/alert/searchInput.jsp</result>
+        </action>
+        <!-- 报警说明 -->
+        <action name="description" method="description" class="MonitorAlertAction">
+        	<result name="success" type="dispatcher">/monitor/alert/description.jsp</result>
+        </action>
+    </package>
+ 	<!-- alert end-->
+ 	
+ 	
+</struts>

@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts-shop" location="0,0" size="0,0" />
+  <package name="default" location="0,0" size="0,0">
+    <action name="user" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="main_user.jsp" />
+      </result>
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="main.jsp" />
+      </result>
+    </action>
+    <action name="content" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="content.jsp" />
+      </result>
+    </action>
+    <action name="menu" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="left_menu.jsp" />
+      </result>
+    </action>
+    <action name="login" location="0,0" size="0,0">
+      <result name="0">
+        <resourceEdge source="0" routing="0" target="index.jsp" />
+      </result>
+      <result name="1">
+        <resourceEdge source="1" routing="0" target="main_engineer.jsp" />
+      </result>
+      <result name="2">
+        <resourceEdge source="2" routing="0" target="main_itmanager.jsp" />
+      </result>
+      <result name="3">
+        <resourceEdge source="3" routing="0" target="user" namespace="/" />
+      </result>
+      <result name="4">
+        <resourceEdge source="4" routing="0" target="main.jsp" />
+      </result>
+      <result name="5">
+        <resourceEdge source="5" routing="0" target="choosewap.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="indexbank.jsp" />
+      </result>
+      <result name="login">
+        <resourceEdge source="login" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="logout" location="0,0" size="0,0">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="indexbank.jsp" />
+      </result>
+    </action>
+    <action name="roleChange" location="0,0" size="0,0">
+      <result name="4">
+        <resourceEdge source="4" routing="0" target="main.jsp" />
+      </result>
+      <result name="0">
+        <resourceEdge source="0" routing="0" target="index.jsp" />
+      </result>
+      <result name="1">
+        <resourceEdge source="1" routing="0" target="main_engineer.jsp" />
+      </result>
+      <result name="2">
+        <resourceEdge source="2" routing="0" target="main_itmanager.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="indexbank.jsp" />
+      </result>
+      <result name="3">
+        <resourceEdge source="3" routing="0" target="user" namespace="/" />
+      </result>
+    </action>
+  </package>
+  <package name="flow" location="0,0" size="0,0">
+    <action name="*ProType" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*ProDefinition" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*ProUserAssign" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*ProcessActivity" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*ProcessRun" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*Task" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="display" />
+    </action>
+    <action name="processRunDetail" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="processDetail" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="department" location="0,0" size="0,0">
+    <action name="departSynGet" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top3" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="list" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="list" />
+      <result name="input" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="list" />
+    </action>
+    <action name="departmentList" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="buildlocation" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="title" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="fail" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="fail" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="itsmtype" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="title" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="fail" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="fail" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="location" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="list" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0">
+      <result name="list" />
+    </action>
+  </package>
+  <package name="errorType" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="severityTyp" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="serviceCategory" location="0,0" size="0,0">
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="projecttask" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="projecttask" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="event" />
+      <result name="plantask" />
+      <result name="changerequest" />
+      <result name="project" />
+      <result name="projecttask" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="event" />
+      <result name="plantask" />
+      <result name="changerequest" />
+      <result name="project" />
+      <result name="projecttask" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="cat" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="holiday" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="taskAllocation" location="0,0" size="0,0">
+    <action name="event_service" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="change_request" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="service_engineer" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="top3" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="engineer" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="authority" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="menu" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="role" location="0,0" size="0,0">
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="basic" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="menu" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="forUserSelect" location="0,0" size="0,0">
+      <result name="forUserSelect" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryforTask" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryforTask2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryByRoleteam" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveprivilege" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="problemType" location="0,0" size="0,0">
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="documentCat" location="0,0" size="0,0">
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="user" location="0,0" size="0,0">
+    <action name="userGetByDepartAndKeyword" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listAllUser" location="0,0" size="0,0" />
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="addInput2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="personaldata" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changePwd" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="failed" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save2" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="userlist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="nuserselect" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="userrequest" location="0,0" size="0,0">
+    <action name="init" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="fileUpload" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="categoryList" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="save" />
+    </action>
+  </package>
+  <package name="engineerrequest" location="0,0" size="0,0">
+    <action name="init" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="tracelist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="usertrace" location="0,0" size="0,0">
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0" />
+    <action name="showReqInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="tracelist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showUserInfo" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="propressInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="down" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="engineertrace" location="0,0" size="0,0">
+    <action name="morelist" location="0,0" size="0,0">
+      <result name="request" />
+      <result name="task" />
+    </action>
+    <action name="tracelist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="engineer" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="intervene" location="0,0" size="0,0">
+      <result name="success0" />
+      <result name="success4" />
+      <result name="success1" />
+      <result name="success5" />
+    </action>
+    <action name="showtran" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success0" />
+      <result name="success1" />
+      <result name="success2" />
+      <result name="success4" />
+      <result name="success5" />
+      <result name="success6" />
+      <result name="success7" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query3" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="init" />
+    </action>
+    <action name="assign" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="delay" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="reassign" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="recate" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="accept" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="pause" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="solve" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="rouse" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="transmit" location="0,0" size="0,0">
+      <result name="errorinput" />
+      <result name="input" />
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="refuse" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="ret" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="feedback" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="propress" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="clo" location="0,0" size="0,0">
+      <result name="error" />
+      <result name="success" />
+    </action>
+    <action name="tranrecode" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="download" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="user_show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryFromIncident" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="userrequesthistory" location="0,0" size="0,0">
+    <action name="tracelist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showReqInfoHistory" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="propressInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showReqInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assign" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="accept" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="solve" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="transmit" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="ret" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="refuse" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="clo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="down" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showstatisfaction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="doSatisfaction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showUserInfo" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+  </package>
+  <package name="engineerrequesthistory" location="0,0" size="0,0">
+    <action name="requestlist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query4" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="eventorservicestatistics" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="authority" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="serviceprocess" location="0,0" size="0,0">
+    <action name="requestlist" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="itmanager" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assign" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="asst" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="inci" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="interposeShow" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="viewprogress" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+    <action name="delay" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="refuse" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="systemdailyaudit" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0" />
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0" />
+  </package>
+  <package name="utiltree" location="0,0" size="0,0">
+    <action name="department" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assetstype" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="buildlocation" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getChildren" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="getbuildlocationChildren" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="itsmtype" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getitsmtypeChildren" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+  </package>
+  <package name="assets" location="0,0" size="0,0">
+    <action name="device" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="computer" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="batch" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listForInc" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="print" location="0,0" size="0,0">
+      <result name="in" />
+      <result name="brrow" />
+    </action>
+    <action name="batchupdate" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changes" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changequery" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="alert" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changebaseshow" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changeshow" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="changeupdate" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="quality" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="title" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="batchupdate" />
+    </action>
+    <action name="qurey" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryForInc" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteFile" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="patch" />
+    </action>
+    <action name="cartogramqurey" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="statistic" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="DataStatistic" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="historystatistic" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="excelDownString" location="0,0" size="0,0" />
+    <action name="downloads" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="excelDown" location="0,0" size="0,0" />
+    <action name="down" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="excelDown" location="0,0" size="0,0" />
+    <action name="import" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assetsImporthidden" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assetsImporthidden2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="assetsImporthidden4" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="download" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="producer" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatefind" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="assetstype" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="title" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="backupAssets" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="error" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="showAssets" location="0,0" size="0,0">
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="tree" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="typetree" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="placetree" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="departmenttree" location="0,0" size="0,0">
+      <result name="json_data" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="title" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="department" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="state" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="place" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="type" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="qurey" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="FileDownAction" location="0,0" size="0,0">
+    <action name="download" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="asst" location="0,0" size="0,0" />
+  <package name="PersonalNotice" location="0,0" size="0,0">
+    <action name="sendPersonalNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listPersonalNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deletePersonalNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="detailPersonalNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="SystemNotice" location="0,0" size="0,0">
+    <action name="indexUI" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showUI" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listUI" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="dlpsUI" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="listSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatePSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="querySystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="querySystemNotice2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="detailSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showSystemNotice" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="findNowNotices" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="noticeInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="AddressBookManage" location="0,0" size="0,0">
+    <action name="personalAddressBook" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addPersonalContacts" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deletePersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listPersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="newAddressBook" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="myContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateP" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatePPersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatePersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="publicAddressBook" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="firstQuery" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="firstQueryContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryPersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="detailAddressBook" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="detailPersonalContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addressImport" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addressBookImport" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="download" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="export" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="mainContact" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="ProjectManage" location="0,0" size="0,0">
+    <action name="newProject" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="createProject" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="traceProject" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="queryProject" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="worklog" location="0,0" size="0,0">
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="myquery" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="addInPut" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deletequery" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hot" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="knowledgebase" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="list2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="search" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="search2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="top2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="fileUpload" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="download" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="SchedualedTask" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="users" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="users2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="week" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="calendar" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="month" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="work" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success0" />
+      <result name="success1" />
+      <result name="success2" />
+      <result name="success3" />
+    </action>
+    <action name="show1" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showstu" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="solve" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="finish" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="review" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="transmit" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deletest" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deletestd" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateinput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatestdinput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatestd" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="arrange" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updatebywd" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteacc" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="croninput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="cron" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="showtran" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="inputdiary" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="savediary" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="listdiary" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+  </package>
+  <package name="schedule" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="add" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="edit" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="my" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="month" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="detail" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="mydetail" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="mynote" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="shownote" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addnoteInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addnote" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0" />
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+  </package>
+  <package name="Document" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="add" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="main" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="index_update" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="down" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="listhistory" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="showhistory" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="del_acessory" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="ipaddress" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_saveInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="export" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+  </package>
+  <package name="EngineerShow" location="0,0" size="0,0">
+    <action name="top" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="domainregister" location="0,0" size="0,0">
+    <action name="list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="checkDomain" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_list" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_show" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_updateInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="user_saveInput" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="query2" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_save" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="export" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_update" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="user_delete" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input" />
+    </action>
+  </package>
+  <webResource name="main_user.jsp" path="/main_user.jsp" location="0,0" size="0,0" />
+  <webResource name="main.jsp" path="/main.jsp" location="0,0" size="0,0" />
+  <webResource name="content.jsp" path="/content.jsp" location="0,0" size="0,0" />
+  <webResource name="left_menu.jsp" path="/left_menu.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/managerdesk/index.jsp" location="0,0" size="0,0" />
+  <webResource name="main_engineer.jsp" path="/main_engineer.jsp" location="0,0" size="0,0" />
+  <webResource name="main_itmanager.jsp" path="/main_itmanager.jsp" location="0,0" size="0,0" />
+  <webResource name="choosewap.jsp" path="/wap/assets/choosewap.jsp" location="0,0" size="0,0" />
+  <webResource name="indexbank.jsp" path="/indexbank.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/error.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

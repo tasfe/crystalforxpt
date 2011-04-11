@@ -1,0 +1,14 @@
+paging.banner.placement=top
+export.banner=<div class="exportlinks">导出列表：{0}</div>
+export.csv=false
+export.excel.include_header=true
+paging.banner.prev_label=前一页
+paging.banner.next_label=下一页
+paging.banner.item_name=文件
+paging.banner.items_name=文件
+paging.banner.some_items_found=共有{0}个{1}，当前显示从{2}到{3}
+paging.banner.no_items_found=<span class="pagebanner">没有{0}</span>
+paging.banner.all_items_found=<span class="pagebanner">共有{0}个{1}，全部显示</span> 
+paging.banner.full=<span class="pagelinks">[<a href={1}>首页</a>/<a href={2}>前一页</a>] {0} [<a href={3}>下一页</a>/<a href={4}>末页</a>]</span>
+paging.banner.onepage=<span class="pagelinks">{0}</span>
+paging.banner.page.link=<a href={1} title="跳转到{0}页">{0}</a>

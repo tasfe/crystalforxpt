@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean class="com.combanc.monitor.util.ApplicationContextUtil"></bean>
+	
+	<!-- dwr comet 推送  -->
+	<bean id="NotifyClient" class="com.combanc.monitor.comet.NotifyClient">
+	</bean>
+	<bean id="DwrService" class="com.combanc.monitor.comet.DwrService">
+	</bean>
+	<!-- dwr comet 推送 end  -->
+	
+	<!-- DAO And Service  -->
+	
+	<bean id="MonitorAccessLogDAO" class="com.combanc.monitor.dao.MonitorAccessLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorAccessLogService" class="com.combanc.monitor.service.MonitorAccessLogService">
+		<property name="monitorAccessLogDAO">
+			<ref bean="MonitorAccessLogDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorArpLogDAO" class="com.combanc.monitor.dao.MonitorArpLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorArpLogService" class="com.combanc.monitor.service.MonitorArpLogService">
+		<property name="monitorArpLogDAO">
+			<ref bean="MonitorArpLogDAO" />
+		</property>
+	</bean>
+	
+	<!-- 配置MonitorAlertDAO和MonitorAlertService -->
+	<bean id="MonitorAlertDAO" class="com.combanc.monitor.dao.MonitorAlertDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorAlertPolicyDAO" class="com.combanc.monitor.dao.MonitorAlertPolicyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorAlertPolicyService" class="com.combanc.monitor.service.MonitorAlertPolicyService">
+		<property name="monitorAlertPolicyDAO">  
+			<ref bean="MonitorAlertPolicyDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorAlertTypeDAO" class="com.combanc.monitor.dao.MonitorAlertTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorAlertSmalltypeDAO" class="com.combanc.monitor.dao.MonitorAlertSmalltypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="MonitorAlertSmalltypeService" class="com.combanc.monitor.service.MonitorAlertSmalltypeService">
+		<property name="monitorAlertSmalltypeDAO">  
+			<ref bean="MonitorAlertSmalltypeDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorAlertTypeService" class="com.combanc.monitor.service.MonitorAlertTypeService">
+		<property name="monitorAlertTypeDAO">  
+			<ref bean="MonitorAlertTypeDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorArpAlertWhiteMacDAO" class="com.combanc.monitor.dao.MonitorArpAlertWhiteMacDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorArpAlertWhiteMacService" class="com.combanc.monitor.service.MonitorArpAlertWhiteMacService">
+		<property name="monitorArpAlertWhiteMacDAO">  
+			<ref bean="MonitorArpAlertWhiteMacDAO" />  
+		</property>
+	</bean>
+	<!-- 配置MonitorAlertService相关业务 -->
+	<bean id="MonitorAlertService" class="com.combanc.monitor.service.MonitorAlertService">
+		<property name="monitorAlertDAO">
+			<ref bean="MonitorAlertDAO" />
+		</property>
+		<property name="monitorAlertTypeDAO">
+			<ref bean="MonitorAlertTypeDAO" />
+		</property>
+		<property name="monitorAlertSmalltypeDAO">
+			<ref bean="MonitorAlertSmalltypeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorBuildingDAO" class="com.combanc.monitor.dao.MonitorBuildingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorBuildingZoneDAO" class="com.combanc.monitor.dao.MonitorBuildingZoneDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorComputerDAO" class="com.combanc.monitor.dao.MonitorComputerDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorComputerService" class="com.combanc.monitor.service.MonitorComputerService">
+		<property name="monitorComputerDAO">
+			<ref bean="MonitorComputerDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorCpuDataDAO" class="com.combanc.monitor.dao.MonitorCpuDataDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorCpuDataHourDAO" class="com.combanc.monitor.dao.MonitorCpuDataHourDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorCpuDataDayDAO" class="com.combanc.monitor.dao.MonitorCpuDataDayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorCpuDataService" class="com.combanc.monitor.service.MonitorCpuDataService">
+		<property name="monitorCpuDataDAO">
+			<ref bean="MonitorCpuDataDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorCpuDataDayService" class="com.combanc.monitor.service.MonitorCpuDataDayService">
+		<property name="monitorCpuDataDayDAO">
+			<ref bean="MonitorCpuDataDayDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorCpuDataHourService" class="com.combanc.monitor.service.MonitorCpuDataHourService">
+		<property name="monitorCpuDataHourDAO">
+			<ref bean="MonitorCpuDataHourDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorDepartmentDAO" class="com.combanc.monitor.dao.MonitorDepartmentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorDeviceDAO" class="com.combanc.monitor.dao.MonitorDeviceDAO" parent="BaseHibernateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorDeviceTypeDAO" class="com.combanc.monitor.dao.MonitorDeviceTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="MonitorDeviceTypeService" class="com.combanc.monitor.service.MonitorDeviceTypeService">
+		<property name="monitorDeviceTypeDAO">  
+			<ref bean="MonitorDeviceTypeDAO" />  
+		</property>
+	</bean>
+	<!-- 配置MonitorDeviceService相关业务 -->
+	<bean id="MonitorDeviceService" class="com.combanc.monitor.service.MonitorDeviceService">
+		<property name="monitorDeviceDAO">
+			<ref bean="MonitorDeviceDAO" />
+		</property>
+		<property name="monitorDeviceTypeDAO">
+			<ref bean="MonitorDeviceTypeDAO" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="monitorAlertPolicyDAO">
+			<ref bean="MonitorAlertPolicyDAO" />
+		</property>
+		<property name="monitorSystemParamDAO">
+			<ref bean="MonitorSystemParamDAO" />
+		</property>
+		<property name="monitorInterfaceCacheDAO">
+			<ref bean="MonitorInterfaceCacheDAO" />
+		</property>
+		<property name="monitorComputerDAO">
+			<ref bean="MonitorComputerDAO" />
+		</property>
+		<property name="deviceInterfaceStatus">
+			<ref bean="DeviceInterfaceStatus" />
+		</property>
+		<property name="monitorCpuDataDAO">
+			<ref bean="MonitorCpuDataDAO" />
+		</property>
+		<property name="monitorCpuDataHourDAO">
+			<ref bean="MonitorCpuDataHourDAO" />
+		</property>
+		<property name="monitorCpuDataDayDAO">
+			<ref bean="MonitorCpuDataDayDAO" />
+		</property>
+		<property name="monitorRealtimeUseDAO">
+			<ref bean="MonitorRealtimeUseDAO" />
+		</property>
+		<property name="monitorLinkportDAO">
+			<ref bean="MonitorLinkportDAO" />
+		</property>
+		<property name="monitorRegularDataService">
+			<ref bean="MonitorRegularDataService" />
+		</property>
+		<property name="monitorRegularDataHourService">
+			<ref bean="MonitorRegularDataHourService" />
+		</property>
+		<property name="monitorRegularDataDayService">
+			<ref bean="MonitorRegularDataDayService" />
+		</property>
+		
+	</bean>
+	
+	<bean id="MonitorInterfaceCacheDAO" class="com.combanc.monitor.dao.MonitorInterfaceCacheDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+	</bean>
+	<bean id="MonitorInterfaceCacheService" class="com.combanc.monitor.service.MonitorInterfaceCacheService">
+		<property name="monitorInterfaceCacheDAO">
+			<ref bean="MonitorInterfaceCacheDAO" />
+		</property>
+		<property name="deviceInterfaceStatus">
+			<ref bean="DeviceInterfaceStatus" />
+		</property>
+		<property name="monitorDeviceDAO">
+			<ref bean="MonitorDeviceDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorKeyInterfaceDAO" class="com.combanc.monitor.dao.MonitorKeyInterfaceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorKeyInterfaceService" class="com.combanc.monitor.service.MonitorKeyInterfaceService">
+		<property name="monitorKeyInterfaceDAO">
+			<ref bean="MonitorKeyInterfaceDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorLinkportDAO" class="com.combanc.monitor.dao.MonitorLinkportDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorLinkportService" class="com.combanc.monitor.service.MonitorLinkportService">
+		<property name="monitorLinkportDAO">
+			<ref bean="MonitorLinkportDAO" />
+		</property>
+		<property name="portMatch">
+			<ref bean="PortMatch" />
+		</property>
+		
+	</bean>
+	
+	<bean id="MonitorMacInfoDAO" class="com.combanc.monitor.dao.MonitorMacInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingDestDAO" class="com.combanc.monitor.dao.MonitorPingDestDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingDestTypeDAO" class="com.combanc.monitor.dao.MonitorPingDestTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorPingRegionGroupDAO" class="com.combanc.monitor.dao.MonitorPingRegionGroupDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorPingResponseRecordDAO" class="com.combanc.monitor.dao.MonitorPingResponseRecordDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingResultDAO" class="com.combanc.monitor.dao.MonitorPingResultDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingResultService" class="com.combanc.monitor.service.MonitorPingResultService">
+		<property name="monitorPingResultDAO">  
+			<ref bean="MonitorPingResultDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingResultDayDAO" class="com.combanc.monitor.dao.MonitorPingResultDayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingTimePointDAO" class="com.combanc.monitor.dao.MonitorPingTimePointDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorPingTimePointService" class="com.combanc.monitor.service.MonitorPingTimePointService">
+		<property name="monitorPingTimePointDAO">  
+			<ref bean="MonitorPingTimePointDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingDestService" class="com.combanc.monitor.service.MonitorPingDestService">
+		<property name="monitorPingDestDAO">  
+			<ref bean="MonitorPingDestDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorPingDestTypeService" class="com.combanc.monitor.service.MonitorPingDestTypeService">
+		<property name="monitorPingDestTypeDAO">  
+			<ref bean="MonitorPingDestTypeDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorRealtimeUseDAO" class="com.combanc.monitor.dao.MonitorRealtimeUseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeUseService" class="com.combanc.monitor.service.MonitorRealtimeUseService">
+		<property name="monitorRealtimeUseDAO">
+			<ref bean="MonitorRealtimeUseDAO" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeDelayDAO" class="com.combanc.monitor.dao.MonitorRealtimeDelayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeDelayService" class="com.combanc.monitor.service.MonitorRealtimeDelayService">
+		<property name="monitorRealtimeDelayDAO">  
+			<ref bean="MonitorRealtimeDelayDAO" />  
+		</property>
+	</bean>
+	<bean id="MonitorRealtimePortflowDAO" class="com.combanc.monitor.dao.MonitorRealtimePortflowDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimePortflowService" class="com.combanc.monitor.service.MonitorRealtimePortflowService">
+		<property name="monitorRealtimePortflowDAO">  
+			<ref bean="MonitorRealtimePortflowDAO" />  
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeCpuDAO" class="com.combanc.monitor.dao.MonitorRealtimeCpuDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeCpuService" class="com.combanc.monitor.service.MonitorRealtimeCpuService">
+		<property name="monitorRealtimeCpuDAO">  
+			<ref bean="MonitorRealtimeCpuDAO" />  
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeFaultDAO" class="com.combanc.monitor.dao.MonitorRealtimeFaultDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRealtimeFaultService" class="com.combanc.monitor.service.MonitorRealtimeFaultService">
+		<property name="monitorRealtimeFaultDAO">  
+			<ref bean="MonitorRealtimeFaultDAO" />  
+		</property>
+	</bean>
+	
+	<bean id="MonitorRegularDataDAO" class="com.combanc.monitor.dao.MonitorRegularDataDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRegularDataService" class="com.combanc.monitor.service.MonitorRegularDataService">
+		<property name="monitorRegularDataDAO">
+			<ref bean="MonitorRegularDataDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorRegularDataHourDAO" class="com.combanc.monitor.dao.MonitorRegularDataHourDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRegularDataHourService" class="com.combanc.monitor.service.MonitorRegularDataHourService">
+		<property name="monitorRegularDataHourDAO">
+			<ref bean="MonitorRegularDataHourDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorRegularDataDayDAO" class="com.combanc.monitor.dao.MonitorRegularDataDayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorRegularDataDayService" class="com.combanc.monitor.service.MonitorRegularDataDayService">
+		<property name="monitorRegularDataDayDAO">
+			<ref bean="MonitorRegularDataDayDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorReportTaskDAO" class="com.combanc.monitor.dao.MonitorReportTaskDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSegmentDAO" class="com.combanc.monitor.dao.MonitorSegmentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorSegmentService" class="com.combanc.monitor.service.MonitorSegmentService">
+		<property name="monitorSegmentDAO">
+			<ref bean="MonitorSegmentDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorServerProcessDAO" class="com.combanc.monitor.dao.MonitorServerProcessDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorServerProcessService" class="com.combanc.monitor.service.MonitorServerProcessService">
+		<property name="monitorServerProcessDAO">
+			<ref bean="MonitorServerProcessDAO" />
+		</property>
+	</bean>
+<!--	
+	<bean id="MonitorSnapshotDAO" class="com.combanc.monitor.dao.MonitorSnapshotDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="MonitorSnapshotService" class="com.combanc.monitor.service.MonitorSnapshotService">
+		<property name="monitorSnapshotDAO">
+			<ref bean="MonitorSnapshotDAO" />
+		</property>
+	</bean>
+	-->
+	<bean id="MonitorSubnetDAO" class="com.combanc.monitor.dao.MonitorSubnetDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSubnetTypeDAO" class="com.combanc.monitor.dao.MonitorSubnetTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSubnetDeviceDAO" class="com.combanc.monitor.dao.MonitorSubnetDeviceDAO" parent="BaseHibernateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSubnetService" class="com.combanc.monitor.service.MonitorSubnetService">
+		<property name="monitorSubnetDAO">
+			<ref bean="MonitorSubnetDAO" />
+		</property>
+		<property name="monitorSubnetDeviceDAO">
+			<ref bean="MonitorSubnetDeviceDAO" />
+		</property>
+		<property name="monitorSubnetTypeDAO">
+			<ref bean="MonitorSubnetTypeDAO" />
+		</property>
+		<property name="linkportDiscovery">
+			<ref bean="LinkPortDiscovery" />
+		</property>
+		<property name="monitorDeviceDAO">
+			<ref bean="MonitorDeviceDAO" />
+		</property>
+		<property name="monitorLinkportDAO">
+			<ref bean="MonitorLinkportDAO" />
+		</property>
+		<property name="monitorTopologyEdgeDAO">
+			<ref bean="MonitorTopologyEdgeDAO" />
+		</property>
+		<property name="monitorTopologyNodeDAO">
+			<ref bean="MonitorTopologyNodeDAO" />
+		</property>
+		<property name="monitorSystemParamDAO">
+			<ref bean="MonitorSystemParamDAO" />
+		</property>
+		<property name="monitorDeviceTypeDAO">
+			<ref bean="MonitorDeviceTypeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSwitchModelDAO" class="com.combanc.monitor.dao.MonitorSwitchModelDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorSystemParamDAO" class="com.combanc.monitor.dao.MonitorSystemParamDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorSystemParamService" class="com.combanc.monitor.service.MonitorSystemParamService">
+		<property name="monitorSystemParamDAO">
+			<ref bean="MonitorSystemParamDAO" />
+		</property>
+		<property name="scanLoopTimer">
+			<ref bean="ScanLoopTimer" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorTcpPortDAO" class="com.combanc.monitor.dao.MonitorTcpPortDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorTcpPortService" class="com.combanc.monitor.service.MonitorTcpPortService">
+		<property name="monitorTcpPortDAO">
+			<ref bean="MonitorTcpPortDAO" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorTopologyEdgeDAO" class="com.combanc.monitor.dao.MonitorTopologyEdgeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorTopologyNodeDAO" class="com.combanc.monitor.dao.MonitorTopologyNodeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorUrlTypeDAO" class="com.combanc.monitor.dao.MonitorUrlTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<bean id="MonitorUrlServiceDAO" class="com.combanc.monitor.dao.MonitorUrlServiceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorUrlResponseDAO" class="com.combanc.monitor.dao.MonitorUrlResponseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorUrlResponseService" class="com.combanc.monitor.service.MonitorUrlResponseService">
+		<property name="monitorUrlResponseDAO">  
+			<ref bean="MonitorUrlResponseDAO" />  
+		</property>
+	</bean>
+	<bean id="MonitorUserDAO" class="com.combanc.monitor.dao.MonitorUserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorV3AuthDAO" class="com.combanc.monitor.dao.MonitorV3AuthDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorV3ParamsDAO" class="com.combanc.monitor.dao.MonitorV3ParamsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorV3PrivDAO" class="com.combanc.monitor.dao.MonitorV3PrivDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorV3SecurityLevelDAO" class="com.combanc.monitor.dao.MonitorV3SecurityLevelDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="MonitorVendorDAO" class="com.combanc.monitor.dao.MonitorVendorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="MonitorVendorService" class="com.combanc.monitor.service.MonitorVendorService">
+		<property name="monitorVendorDAO">
+			<ref bean="MonitorVendorDAO" />
+		</property>
+	</bean>
+	<bean id="MonitorVendorMacDAO" class="com.combanc.monitor.dao.MonitorVendorMacDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorVlanDAO" class="com.combanc.monitor.dao.MonitorVlanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MonitorZoneVlanDAO" class="com.combanc.monitor.dao.MonitorZoneVlanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- DAO And Service end -->
+
+	
+	<!--	 配置SNMP相关后台算法 -->
+	<bean id="DeviceSnmpQuery" class="com.combanc.monitor.algorithm.DeviceSnmpQuery">
+		<property name="monitorInterfaceCacheService">
+			<ref bean="MonitorInterfaceCacheService" />
+		</property>
+		<property name="monitorVendorService">
+			<ref bean="MonitorVendorService" />
+		</property>
+		<property name="monitorAlertTypeService">
+			<ref bean="MonitorAlertTypeService" />
+		</property>
+	</bean>
+	<bean id="MACPortScan" class="com.combanc.monitor.algorithm.MACPortScan">
+		<property name="monitorSubnetService">
+			<ref bean="MonitorSubnetService" />
+		</property>
+		<property name="monitorDeviceService">
+			<ref bean="MonitorDeviceService" />
+		</property>
+		<property name="monitorLinkportService">
+			<ref bean="MonitorLinkportService" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="monitorInterfaceCacheService">
+			<ref bean="MonitorInterfaceCacheService" />
+		</property>
+		<property name="dwrService">
+			<ref bean="DwrService" />
+		</property>
+		<property name="monitorSystemParamService">
+			<ref bean="MonitorSystemParamService" />
+		</property>
+	</bean>
+	<bean id="ArpModeScan" class="com.combanc.monitor.algorithm.ArpModeScan">
+		<property name="monitorSubnetService">
+			<ref bean="MonitorSubnetService" />
+		</property>
+		<property name="monitorDeviceService">
+			<ref bean="MonitorDeviceService" />
+		</property>
+		<property name="monitorComputerService">
+			<ref bean="MonitorComputerService" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="macPortScan">
+			<ref bean="MACPortScan" />
+		</property>
+		<property name="monitorAlertService">
+			<ref bean="MonitorAlertService" />
+		</property>
+		<property name="dwrService">
+			<ref bean="DwrService" />
+		</property>
+		<property name="monitorArpLogService">
+			<ref bean="MonitorArpLogService" />
+		</property>
+		<property name="monitorAlertTypeService">
+			<ref bean="MonitorAlertTypeService" />
+		</property>
+		<property name="monitorSystemParamService">
+			<ref bean="MonitorSystemParamService" />
+		</property>
+		<property name="monitorArpAlertWhiteMacService">
+			<ref bean="MonitorArpAlertWhiteMacService" />
+		</property>
+		
+		<property name="alerter">
+			<ref bean="Alerter" />
+		</property>
+	</bean>
+	
+	<bean id="LinkPortDiscovery" class="com.combanc.monitor.algorithm.LinkPortDiscovery" scope="prototype">
+		<property name="monitorSubnetService">
+			<ref bean="MonitorSubnetService" />
+		</property>
+		<property name="monitorDeviceService">
+			<ref bean="MonitorDeviceService" />
+		</property>
+		<property name="monitorLinkportService">
+			<ref bean="MonitorLinkportService" />
+		</property>
+		<!-- 注意这里要调用deviceSnmpQuery，不能直接在程序中new，
+			否则导致deviceSnmpQuery里面的DeviceInterfaceCacheDAO等bean不能被初始化 -->
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="macPortScan">
+			<ref bean="MACPortScan" />
+		</property>
+		<property name="l3TopDiscovery">
+			<ref bean="L3TopDiscovery" />
+		</property>
+		<property name="dwrService">
+			<ref bean="DwrService" />
+		</property>
+	</bean>
+	
+	<!--	L3TopDiscovery-->
+	<bean id="L3TopDiscovery" class="com.combanc.monitor.algorithm.L3TopDiscovery" scope="prototype">
+		<property name="monitorSubnetService">
+			<ref bean="MonitorSubnetService" />
+		</property>
+		<property name="monitorDeviceService">
+			<ref bean="MonitorDeviceService" />
+		</property>
+		<property name="monitorLinkportService">
+			<ref bean="MonitorLinkportService" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+	</bean>
+	
+	<bean id="DeviceInterfaceStatus" class="com.combanc.monitor.algorithm.DeviceInterfaceStatus">
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="monitorDeviceService">
+			<ref bean="MonitorDeviceService" />
+		</property>
+		<property name="monitorInterfaceCacheService">
+			<ref bean="MonitorInterfaceCacheService" />
+		</property>
+		<property name="monitorSystemParamService">
+			<ref bean="MonitorSystemParamService" />
+		</property>
+	</bean>
+
+	
+
+	
+	<bean id="HostSnmpQuery" class="com.combanc.monitor.algorithm.HostSnmpQuery">
+	</bean>
+	
+	<bean id="PortMatch" class="com.combanc.monitor.algorithm.PortMatch">
+		<property name="monitorSubnetService">
+			<ref bean="MonitorSubnetService" />
+		</property>
+		<property name="deviceSnmpQuery">
+			<ref bean="DeviceSnmpQuery" />
+		</property>
+		<property name="macPortScan">
+			<ref bean="MACPortScan" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- 报警计数器   -->
+	<bean id="BaseParser" class="com.combanc.monitor.alert.alertParser.BaseParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="CpuHightParser" class="com.combanc.monitor.alert.alertParser.CpuHightParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="DeviceFaultParser" class="com.combanc.monitor.alert.alertParser.DeviceFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	<bean id="PingDeviceFaultParser" class="com.combanc.monitor.alert.alertParser.PingDeviceFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	<bean id="FlowHightParser" class="com.combanc.monitor.alert.alertParser.FlowHightParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+		<property name="monitorLinkportService">  
+			<ref bean="MonitorLinkportService" />  
+		</property>
+	</bean>
+	
+	<bean id="KeyInterfaceFaultParser" class="com.combanc.monitor.alert.alertParser.KeyInterfaceFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="PingFaultParser" class="com.combanc.monitor.alert.alertParser.PingFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+		<property name="monitorPingDestService">  
+			<ref bean="MonitorPingDestService" />  
+		</property>
+	</bean>
+	
+	<bean id="ProcessFaultParser" class="com.combanc.monitor.alert.alertParser.ProcessFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="ServiceFaultParser" class="com.combanc.monitor.alert.alertParser.ServiceFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="TempHightParser" class="com.combanc.monitor.alert.alertParser.TempHightParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="UrlFaultParser" class="com.combanc.monitor.alert.alertParser.UrlFaultParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+		<property name="monitorUrlResponseService">  
+			<ref bean="MonitorUrlResponseService" />  
+		</property>
+	</bean>
+	
+	<bean id="ArpAlertParser" class="com.combanc.monitor.alert.alertParser.ArpAlertParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="ComputerAlertParser" class="com.combanc.monitor.alert.alertParser.ComputerAlertParser">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="monitorDeviceService">  
+			<ref bean="MonitorDeviceService" />  
+		</property>
+		<property name="monitorAlertService">  
+			<ref bean="MonitorAlertService" />  
+		</property>
+		<property name="monitorAlertSmalltypeService">  
+			<ref bean="MonitorAlertSmalltypeService" />  
+		</property>
+		<property name="monitorAlertTypeService">  
+			<ref bean="MonitorAlertTypeService" />  
+		</property>
+		<property name="userService">  
+			<ref bean="userService" />  
+		</property>
+	</bean>
+	
+	<bean id="Alerter" class="com.combanc.monitor.alert.alertParser.Alerter">
+		<property name="monitorSystemParamService">  
+			<ref bean="MonitorSystemParamService" />  
+		</property>
+		<property name="cpuHightParser">  
+			<ref bean="CpuHightParser" />  
+		</property>
+		<property name="deviceFaultParser">  
+			<ref bean="DeviceFaultParser" />  
+		</property>
+		<property name="pingDeviceFaultParser">  
+			<ref bean="PingDeviceFaultParser" />  
+		</property>
+		<property name="flowHightParser">  
+			<ref bean="FlowHightParser" />  
+		</property>
+		<property name="keyInterfaceFaultParser">  
+			<ref bean="KeyInterfaceFaultParser" />  
+		</property>
+		<property name="pingFaultParser">  
+			<ref bean="PingFaultParser" />  
+		</property>
+		<property name="processFaultParser">  
+			<ref bean="ProcessFaultParser" />  
+		</property>
+		<property name="serviceFaultParser">  
+			<ref bean="ServiceFaultParser" />  
+		</property>
+		<property name="tempHightParser">  
+			<ref bean="TempHightParser" />  
+		</property>
+		<property name="urlFaultParser">  
+			<ref bean="UrlFaultParser" />  
+		</property>
+		<property name="computerAlertParser">  
+			<ref bean="ComputerAlertParser" />  
+		</property>
+		<property name="arpAlertParser">  
+			<ref bean="ArpAlertParser" />  
+		</property>
+	</bean>
+	<!-- 报警计数器 end  -->
+	
+	
+	
+</beans>

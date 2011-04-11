@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.combanc.itsm.pojo">
+
+<class name="KeyTable" table="util_keytable">
+	<id name="id" type="long" column="id">
+		<generator class="assigned"/>
+	</id>
+	<property name="nextAvailable" type="long" column="nextavailable"/>
+	<property name="cacheSize" type="long" column="cachesize"/>
+</class>
+
+</hibernate-mapping>

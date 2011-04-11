@@ -1,0 +1,18 @@
+1 the authorities of user:
+
+
+select distinct ar.authorityID
+from authority_roleteam ar
+where ar.roleteamID in {select ur.roleID from user_roleteam ur where ur.userID='6'}
+
+
+
+
+2 the authorities of team:
+
+select ar.authorityID
+from authority_roleteam ar
+where ar.roleteamID ='8'
+
+
+
