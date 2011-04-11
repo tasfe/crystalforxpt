@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- 配置buildLocationDAO和buildLocationService -->
+	<bean id="buildlocationDAO" class="com.combanc.itsm.dao.BuildlocationDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="buildlocationService" class="com.combanc.itsm.service.BuildlocationService">
+		<property name="buildlocationDAO" ref="buildlocationDAO" />
+	</bean>
+	
+	<!-- 配置itsmTypeDAO和itsmTypeService -->
+	<bean id="itsmTypeDAO" class="com.combanc.itsm.dao.ItsmTypeDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="itsmTypeService" class="com.combanc.itsm.service.ItsmTypeService">
+		<property name="itsmTypeDAO" ref="itsmTypeDAO" />
+	</bean>
+    
+    
+     
+	<!-- 配置assetsStateDAO和assetsStateService -->
+	<bean id="assetsStateDAO" class="com.combanc.itsm.dao.AssetsStateDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="assetsStateService" class="com.combanc.itsm.service.AssetsStateService">
+		<property name="assetsStateDAO" ref="assetsStateDAO" />
+	</bean>
+	<!-- 配置assetsChangeDAO和assetsChangeService -->
+	<bean id="assetsChangeDAO" class="com.combanc.itsm.dao.AssetsChangeDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="assetsChangeService" class="com.combanc.itsm.service.AssetsChangeService">
+		<property name="assetsChangeDAO" ref="assetsChangeDAO" />
+	</bean>
+	<!-- 配置assetsConfigDAO和assetsConfigService -->
+	<bean id="assetsConfigDAO" class="com.combanc.itsm.dao.AssetsConfigDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="assetsConfigService" class="com.combanc.itsm.service.AssetsConfigService">
+		<property name="assetsConfigDAO" ref="assetsConfigDAO" />
+	</bean>
+	<!-- 配置configrecordDAO和configrecordService -->
+	<bean id="configrecordDAO" class="com.combanc.itsm.dao.ConfigRecordDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="configrecordService" class="com.combanc.itsm.service.ConfigRecordService">
+		<property name="configrecordDAO" ref="configrecordDAO" />
+	</bean>
+
+	<!-- 配置authorityDAO和authorityService -->
+	<bean id="authorityDAO" class="com.combanc.itsm.dao.AuthorityDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="authorityService" class="com.combanc.itsm.service.AuthorityService">
+		<property name="authorityDAO" ref="authorityDAO" />
+	</bean>
+
+	<!-- 配置departmentDAO和departmentService -->
+	<bean id="departmentDAO" class="com.combanc.itsm.dao.DepartmentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="departmentService" class="com.combanc.itsm.service.DepartmentService">
+		<property name="departmentDAO" ref="departmentDAO" />
+	</bean>
+
+	<!-- 配置moduleDAO和moduleService -->
+	<bean id="moduleDAO" class="com.combanc.itsm.dao.ModuleDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="moduleService" class="com.combanc.itsm.service.ModuleService">
+		<property name="moduleDAO" ref="moduleDAO" />
+	</bean>
+
+	<!-- 配置locationDAO和locationService -->
+	<bean id="locationDAO" class="com.combanc.itsm.dao.LocationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="locationService" class="com.combanc.itsm.service.LocationService">
+		<property name="locationDAO" ref="locationDAO" />
+	</bean>
+	<bean id="roleGroupDao" class="com.combanc.itsm.dao.RoleGroupDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--
+		配置moduleDAO和moduleService <bean id="moduleDAO"
+		class="com.combanc.itsm.dao.ModuleDAO"> <property
+		name="sessionFactory" ref="sessionFactory" /> </bean> <bean
+		id="moduleService" class="com.combanc.itsm.service.ModuleService">
+		<property name="moduleDAO"> <ref bean="moduleDAO" /> </property>
+		</bean>
+	-->
+
+
+	<!-- 配置roleteamDAO和roleteamService -->
+	<bean id="roleteamDAO" class="com.combanc.itsm.dao.RoleteamDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleteamService" class="com.combanc.itsm.service.RoleteamService">
+		<property name="roleteamDAO" ref="roleteamDAO" />
+	</bean>
+
+	<!-- 配置serviceCategoryDAO和serviceCategoryService -->
+	<bean id="serviceCategoryDAO" class="com.combanc.itsm.dao.ServiceCategoryDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="serviceCategoryService" class="com.combanc.itsm.service.ServiceCategoryService">
+		<property name="serviceCategoryDAO" ref="serviceCategoryDAO" />
+	</bean>
+
+	<!-- 配置userDAO和userService -->
+	<bean id="userDAO" class="com.combanc.itsm.dao.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="ldapTemplate" ref="ldapTemplate" />
+	</bean>
+	<bean id="userService" class="com.combanc.itsm.service.UserService">
+		<property name="userDAO" ref="userDAO" />
+		<property name="privilegeDAO" ref="PrivilegeDAO" />
+		<property name="menuDAO" ref="MenuDAO" />
+		<property name="departmentDAO" ref="departmentDAO"></property>
+		<property name="roleteamDAO" ref="roleteamDAO"></property>
+	</bean>
+
+	<!-- 配置errorTypeDAO和errorTypeService -->
+	<bean id="errorTypeDAO" class="com.combanc.itsm.dao.ErrorTypeDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="errorTypeService" class="com.combanc.itsm.service.ErrorTypeService">
+		<property name="errorTypeDAO" ref="errorTypeDAO" />
+	</bean>
+
+	<!-- 配置holidayDAO和holidayService -->
+	<bean id="holidayDAO" class="com.combanc.itsm.dao.HolidayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="holidayService" class="com.combanc.itsm.service.HolidayService">
+		<property name="holidayDAO">
+			<ref bean="holidayDAO" />
+		</property>
+	</bean>
+
+	<!-- 配置severityTypDAO和severityTypService -->
+	<bean id="severityTypDAO" class="com.combanc.itsm.dao.SeverityTypDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="severityTypService" class="com.combanc.itsm.service.SeverityTypService">
+		<property name="severityTypDAO" ref="severityTypDAO" />
+	</bean>
+
+	<!-- 配置taskAllocationDAO和taskAllocationService 以及关联中间表-->
+	<bean id="taskAllocationDAO" class="com.combanc.itsm.dao.TaskAllocationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="taskAllocationService" class="com.combanc.itsm.service.TaskAllocationService">
+		<property name="taskAllocationDAO" ref="taskAllocationDAO" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="serviceCategoryService" ref="serviceCategoryService" />
+	</bean>
+
+	<bean id="taskCatDAO" class="com.combanc.itsm.dao.TaskCatDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="taskDepDAO" class="com.combanc.itsm.dao.TaskDepDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="taskTeamDAO" class="com.combanc.itsm.dao.TaskTeamDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="taskCatService" class="com.combanc.itsm.service.task.TaskCatService">
+		<property name="taskCatDAO" ref="taskCatDAO" />
+	</bean>
+	<bean id="taskDepService" class="com.combanc.itsm.service.task.TaskDepService">
+		<property name="taskDepDAO" ref="taskDepDAO" />
+	</bean>
+	<bean id="taskTeamService" class="com.combanc.itsm.service.task.TaskTeamService">
+		<property name="taskTeamDAO" ref="taskTeamDAO" />
+	</bean>
+
+	<!-- 配置ProblemTypeDAO和ProblemTypeService -->
+	<bean id="problemTypeDAO" class="com.combanc.itsm.dao.ProblemTypeDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="problemTypeService" class="com.combanc.itsm.service.ProblemTypeService">
+		<property name="problemTypeDAO" ref="problemTypeDAO" />
+	</bean>
+
+
+	<!-- 配置DocumentDAO和DocumentService -->
+	<bean id="documentDAO" class="com.combanc.itsm.dao.DocumentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="documentOldDAO" class="com.combanc.itsm.dao.DocumentOldDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="documentService" class="com.combanc.itsm.service.DocumentService">
+		<property name="documentDAO" ref="documentDAO" />
+		<property name="documentOldDAO" ref="documentOldDAO" />
+	</bean>
+
+	<!-- 配置DocumentCatDAO和DocumentCatService -->
+	<bean id="documentCatDAO" class="com.combanc.itsm.dao.DocumentCatDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="documentCatService" class="com.combanc.itsm.service.DocumentCatService">
+		<property name="documentCatDAO" ref="documentCatDAO" />
+		<property name="documentAuthorityDAO" ref="documentAuthorityDAO" />
+	</bean>
+
+	<!-- 配置DocumentAuthorityDAO和DocumentAuthorityService -->
+	<bean id="documentAuthorityDAO" class="com.combanc.itsm.dao.DocumentAuthorityDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="documentAuthorityService" class="com.combanc.itsm.service.DocumentAuthorityService">
+		<property name="documentAuthorityDAO" ref="documentAuthorityDAO" />
+	</bean>
+
+	<!-- 配置ReportDAO和ReportService -->
+	<bean id="reportDAO" class="com.combanc.itsm.dao.ReportDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="reportService" class="com.combanc.itsm.service.ReportService">
+		<property name="reportDAO" ref="reportDAO" />
+	</bean>
+
+	<!-- 配置ServiceRequestDAO和ServiceRequestService -->
+	<bean id="serviceRequestDAO" class="com.combanc.itsm.dao.ServiceRequestDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="serviceRequestService" class="com.combanc.itsm.service.ServiceRequestService">
+		<property name="serviceRequestDAO" ref="serviceRequestDAO" />
+	</bean>
+
+	<!-- 配置ServiceTranDAO和ServiceTranService -->
+	<bean id="serviceTranDAO" class="com.combanc.itsm.dao.ServiceTranDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="serviceTranService" class="com.combanc.itsm.service.ServiceTranService">
+		<property name="serviceTranDAO" ref="serviceTranDAO" />
+	</bean>
+
+	<!-- 配置AssetsDAO和AssetsService -->
+
+	<bean id="assetsService" class="com.combanc.itsm.service.AssetsService">
+
+		<property name="assetsBaseDAO" ref="assetsBaseDAO" />
+		<property name="assetsInfoDAO" ref="assetsInfoDAO" />
+		<property name="assetsHistoryStateDAO" ref="assetsHistoryStateDAO" />
+	</bean>
+
+
+	<bean id="assetsBaseDAO" class="com.combanc.itsm.dao.AssetsBaseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+
+	</bean>
+	<bean id="assetsInfoDAO" class="com.combanc.itsm.dao.AssetsInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="assetsHistoryStateDAO" class="com.combanc.itsm.dao.AssetsHistoryStateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 配置ProducerDAO和ProducerService -->
+	<bean id="assetsProducerDAO" class="com.combanc.itsm.dao.AssetsProducerDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="producerService" class="com.combanc.itsm.service.ProducerService">
+		<property name="assetsBaseDAO" ref="assetsBaseDAO" />
+		<property name="assetsProducerDAO" ref="assetsProducerDAO" />
+
+	</bean>
+
+	<!-- 配置assetsTypeDAO和assetsTypeService -->
+	<bean id="assetsTypeDAO" class="com.combanc.itsm.dao.AssetsTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="assetsTypeService" class="com.combanc.itsm.service.AssetsTypeService">
+		<property name="assetsTypeDAO" ref="assetsTypeDAO" />
+		<property name="assetsBaseDAO" ref="assetsBaseDAO" />
+	</bean>
+
+	<!-- 配置backupAssets -->
+	<bean id="backupAssets" class="com.combanc.itsm.db.ExportMySQL">
+	</bean>
+
+
+	<bean id="SystemLogDAO" class="com.combanc.itsm.dao.SystemLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="systemLogService" class="com.combanc.itsm.service.SystemLogService">
+		<property name="systemLogDAO">
+			<ref bean="SystemLogDAO" />
+		</property>
+	</bean>
+	<!-- 配置工作流 begin
+	<bean id="jbpmService" class="com.combanc.itsm.service.flow.JbpmService" />
+
+	<bean id="proDefinitionDAO" class="com.combanc.itsm.dao.ProDefinitionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="proTypeDAO" class="com.combanc.itsm.dao.ProTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="proUserAssignDAO" class="com.combanc.itsm.dao.ProUserAssignDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="processRunDAO" class="com.combanc.itsm.dao.ProcessRunDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="taskDAO" class="com.combanc.itsm.dao.TaskDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="proTypeService" class="com.combanc.itsm.service.flow.ProTypeService">
+		<property name="proTypeDAO">
+			<ref bean="proTypeDAO" />
+		</property>
+	</bean>
+	<bean id="proDefinitionService" class="com.combanc.itsm.service.flow.ProDefinitionService">
+		<property name="proDefinitionDAO">
+			<ref bean="proDefinitionDAO" />
+		</property>
+	</bean>
+	<bean id="proUserAssignService" class="com.combanc.itsm.service.flow.ProUserAssignService">
+		<property name="proUserAssignDAO">
+			<ref bean="proUserAssignDAO" />
+		</property>
+	</bean>
+	<bean id="processRunService" class="com.combanc.itsm.service.flow.ProcessRunService">
+		<property name="processRunDAO">
+			<ref bean="processRunDAO" />
+		</property>
+	</bean>
+	<bean id="flowTaskService" class="com.combanc.itsm.service.flow.TaskService">
+		<property name="taskDAO">
+			<ref bean="taskDAO" />
+		</property>
+	</bean>-->
+	<!-- 配置工作流 end-->
+
+	<!-- 配置系统公告SystemNoticeDAO和SystemNoticeService-->
+	<bean id="systemNoticeDAO" class="com.combanc.itsm.dao.SystemNoticeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="systemNoticeService" class="com.combanc.itsm.service.notice.SystemNoticeService">
+		<property name="systemNoticeDAO" ref="systemNoticeDAO"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!--配置项目管理ProjectManageDAO和ProjectManageService-->
+	<bean id="projectManageDAO" class="com.combanc.itsm.dao.ProjectManageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="projectManageService"
+		class="com.combanc.itsm.service.projectmanage.ProjectManageService">
+		<property name="projectManageDAO" ref="projectManageDAO"></property>
+	</bean>
+
+	<!--配置通讯录管理AddressBookManageDAO和AddressBookManageService-->
+	<bean id="addressBookManageDAO" class="com.combanc.itsm.dao.AddressBookManageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="addressBookManageService"
+		class="com.combanc.itsm.service.addressbookmanage.AddressBookManageService">
+		<property name="addressBookManageDAO" ref="addressBookManageDAO"></property>
+	</bean>
+
+	<!--配置分组类别的DWR  -->
+	<bean id="customerTypeDAO" class="com.combanc.itsm.dao.CustomerTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="customerTypeService" class="com.combanc.itsm.service.addressbookmanage.CustomerTypeService">
+		<property name="customerTypeDAO" ref="customerTypeDAO"></property>
+
+	</bean>
+	<!--配置通讯录查询树目录结构的Service -->
+	<bean id="contactsTreeService"
+		class="com.combanc.itsm.service.addressbookmanage.ContactsTreeService">
+		<property name="addressBookManageService">
+			<ref bean="addressBookManageService" />
+		</property>
+		<property name="departmentService">
+			<ref bean="departmentService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+
+
+	<!-- 配置个人通知PersonalNoticeService-->
+	<bean id="personalNoticeService" class="com.combanc.itsm.service.notice.PersonalNoticeService">
+		<property name="systemNoticeDAO" ref="systemNoticeDAO"></property>
+		<property name="userService" ref="userService"></property>
+
+	</bean>
+
+	<!-- 配置附件 start-->
+	<bean id="accessoryDAO" class="com.combanc.itsm.dao.AccessoryDAO"
+		parent="BaseHibernateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="fileUpDownService" class="com.combanc.itsm.service.updown.FileUpDownService">
+		<property name="accessoryDAO">
+			<ref bean="accessoryDAO" />
+		</property>
+	</bean>
+	<!-- 配置附件 end-->
+	<!-- 配置工作日志 start-->
+	<bean id="workLogDAO" class="com.combanc.itsm.dao.WorkLogDAO"
+		parent="BaseHibernateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="workLogService" class="com.combanc.itsm.service.worklog.WorkLogService">
+		<property name="workLogDAO">
+			<ref bean="workLogDAO" />
+		</property>
+		<property name="userDAO">
+			<ref bean="userDAO" />
+		</property>
+	</bean>
+
+	<bean id="treeDateService" class="com.combanc.itsm.service.tree.TreeDateService">
+		<property name="workLogService">
+			<ref bean="workLogService" />
+		</property>
+		<property name="departmentService">
+			<ref bean="departmentService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="assetsTypeService">
+			<ref bean="assetsTypeService" />
+		</property>
+		<property name="buildlocationService">
+			<ref bean="buildlocationService" />
+		</property>
+		<property name="itsmTypeService">
+			<ref bean="itsmTypeService" />
+		</property>
+		<property name="assetsStateService">
+			<ref bean="assetsStateService" />
+		</property>
+		<property name="locationService">
+			<ref bean="locationService" />
+		</property>
+		<property name="producerService">
+			<ref bean="producerService" />
+		</property>
+		
+	</bean>
+	<!-- 配置工作日志 end-->
+
+	<!-- 配置知识库管理 start-->
+	<bean id="knowledgeBaseDAO" class="com.combanc.itsm.dao.KnowledgeBaseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="knowledgeBaseService" class="com.combanc.itsm.service.KnowledgeBaseService">
+		<property name="knowledgeBaseDAO">
+			<ref bean="knowledgeBaseDAO" />
+		</property>
+	</bean>
+	<!-- 配置知识库管理 end-->
+
+	<!-- 配置日程管理 start-->
+	<bean id="scheduleDAO" class="com.combanc.itsm.dao.ScheduleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="scheduleService" class="com.combanc.itsm.service.ScheduleService">
+		<property name="scheduleDAO">
+			<ref bean="scheduleDAO" />
+		</property>
+	</bean>
+	<!-- 配置日程管理 end-->
+
+
+	<bean id="MenuDAO" class="com.combanc.itsm.dao.MenuDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="menuService" class="com.combanc.itsm.service.MenuService">
+		<property name="menuDAO">
+			<ref bean="MenuDAO" />
+		</property>
+	</bean>
+	<bean id="PrivilegeDAO" class="com.combanc.itsm.dao.PrivilegeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="privilegeService" class="com.combanc.itsm.service.PrivilegeService">
+		<property name="privilegeDAO">
+			<ref bean="PrivilegeDAO" />
+		</property>
+	</bean>
+
+	<bean id="LdapadapterDAO" class="com.combanc.itsm.dao.LdapadapterDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ldapadapterService" class="com.combanc.itsm.service.LdapadapterService">
+		<property name="ldapadapterDAO">
+			<ref bean="LdapadapterDAO" />
+		</property>
+	</bean>
+
+	<!-- 配置计划任务SchedualedTasksDAO和SchedualedTaskService -->
+	<bean id="schedualedTasksDAO" class="com.combanc.itsm.dao.SchedualedTasksDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schedualedTaskService" class="com.combanc.itsm.service.SchedualedTaskService">
+		<property name="schedualedTasksDAO" ref="schedualedTasksDAO" />
+		<property name="schedualedTaskDetailDAO" ref="schedualedTaskDetailDAO" />
+	</bean>
+
+	<!-- 配置计划任务SchedualedTasksDetailDAO和SchedualedTaskDetailService -->
+	<bean id="schedualedTaskDetailDAO" class="com.combanc.itsm.dao.SchedualedTaskDetailDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schedualedTaskDetailService" class="com.combanc.itsm.service.SchedualedTaskDetailService">
+		<property name="schedualedTaskDetailDAO" ref="schedualedTaskDetailDAO" />
+	</bean>
+
+	<!-- 配置计划任务SchedualedTasksUserDAO和SchedualedTaskUserService -->
+	<bean id="schedualedTaskUserDAO" class="com.combanc.itsm.dao.SchedualedTaskUserDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schedualedTaskUserService" class="com.combanc.itsm.service.SchedualedTaskUserService">
+		<property name="schedualedTaskUserDAO" ref="schedualedTaskUserDAO" />
+	</bean>
+	
+	<!-- 配置计划任务日志SchedualedTaskDiaryDAO和SchedualedTaskDiaryService -->
+	<bean id="stdDAO" class="com.combanc.itsm.dao.SchedualedTaskDiaryDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="stdService" class="com.combanc.itsm.service.SchedualedTaskDiaryService">
+		<property name="stdDAO" ref="stdDAO" />
+	</bean>
+
+	<!-- 配置IP地址申请IpAddressDAO和IpAddressService -->
+	<bean id="ipAddressDAO" class="com.combanc.itsm.dao.IpAddressDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ipAddressService" class="com.combanc.itsm.service.IpAddressService">
+		<property name="ipAddressDAO" ref="ipAddressDAO" />
+	</bean>
+
+	<!-- 配置IP网络中心人员IpNetcenterDAO和IpNetcenterService -->
+	<bean id="ipNetcenterDAO" class="com.combanc.itsm.dao.IpNetcenterDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ipNetcenterService" class="com.combanc.itsm.service.IpNetcenterService">
+		<property name="ipNetcenterDAO" ref="ipNetcenterDAO" />
+	</bean>
+
+	<!-- 配置定时器 -->
+
+	<!-- 普通的业务Bean -->
+	<bean name="quartzNotice" class="com.combanc.itsm.quartz.QuartzNotice">
+		<property name="schedualedTaskDetailService" ref="schedualedTaskDetailService" />
+		<property name="personalNoticeService" ref="personalNoticeService" />
+	</bean>
+
+	<!-- 作业 -->
+	<bean id="jobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="quartzNotice" />
+		<property name="targetMethod" value="notice" />
+	</bean>
+	<!-- 触发器-->
+	<bean name="trigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetail" />
+		<property name="cronExpression" value="0 0 10,14 * * ?" />
+	</bean>
+	<!--调度工厂-->
+	<bean name="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="trigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置域名申请DomainDAO和DomainService -->
+	<bean id="domainRegisterDAO" class="com.combanc.itsm.dao.DomainRegisterDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="domainRegisterService" class="com.combanc.itsm.service.DomainRegisterService">
+		<property name="domainRegisterDAO" ref="domainRegisterDAO" />
+	</bean>
+	<bean id="roleTablePrivilegeDao" class="com.combanc.itsm.dao.RoleTablePrivilegeDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleTablePrivilegeService" class="com.combanc.itsm.service.RoleTablePrivilegeService">
+		<property name="roleTablePrivilegeDao" ref="roleTablePrivilegeDao" />
+	</bean>
+	<bean id="roleTableDao" class="com.combanc.itsm.dao.RoleTableDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleTableService" class="com.combanc.itsm.service.RoleTableService">
+		<property name="roleTableDao" ref="roleTableDao" />
+	</bean>
+	<bean id="serviceRequestStatisticService" class="com.combanc.itsm.service.ServiceRequestStatisticService">
+		<property name="serviceRequestDAO" ref="serviceRequestDAO" />
+	</bean>
+
+
+	<!-- 王文龙  资产信息统计 -->
+	
+	<bean id="assetStatisticDAO" class="com.combanc.itsm.dao.AssetStatisticDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="assetStatisticService" class="com.combanc.itsm.service.AssetStatisticService">
+		<property name="assetStatisticDAO" ref="assetStatisticDAO" />
+	</bean>
+	
+	<!-- end -->
+        
+         <!-- 配置手机资产工单
+    <bean id="requestAssetsDAO" class="com.combanc.itsm.dao.RequestAssetsDAO">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    -->
+</beans>

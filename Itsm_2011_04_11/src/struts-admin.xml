@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="admin" extends="struts-shop" namespace="/admin">
+	    <global-results>
+			<result name="list" type="redirectAction">adminlogin</result>
+		</global-results>
+		<action name="adminlogin" class="AdminAction" method="adminlogin">
+		    <result name="success" type="dispatcher">/admin.jsp</result>
+		</action>
+		<action name="adminsave" class="AdminAction" method="adminsave">
+		    <result name="success" type="redirectAction">adminlogin</result>
+		</action>
+	</package>
+</struts>

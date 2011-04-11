@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="monitor" location="1325,1585" size="170,70" />
+  <package name="monitorDevice" location="10,1550" size="1260,945">
+    <action name="deviceList" location="1045,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceList.jsp" />
+      </result>
+    </action>
+    <action name="addInput" location="1045,197" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceAdd.jsp" />
+      </result>
+    </action>
+    <action name="deviceAdd" location="800,197" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="800,302" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceAdd.jsp" />
+      </result>
+    </action>
+    <action name="deviceUpdate" location="555,302" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="detail" location="555,407" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceDetail.jsp" />
+      </result>
+    </action>
+    <action name="deviceDelete" location="310,407" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="searchInput" location="310,582" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceSearch.jsp" />
+      </result>
+    </action>
+    <action name="deviceSearch" location="310,757" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="searchResult.jsp" />
+      </result>
+    </action>
+    <action name="searchSave" location="310,862" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="deviceInterface" location="65,862" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deviceInterface.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="subnet" location="785,10" size="560,1260">
+    <action name="subnetList" location="310,117" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetList.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetList.jsp" />
+      </result>
+    </action>
+    <action name="addInput" location="310,222" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetAdd.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetAdd.jsp" />
+      </result>
+    </action>
+    <action name="subnetSave" location="310,327" size="150,62">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetAdd.jsp" />
+      </result>
+    </action>
+    <action name="subnetDelete" location="310,442" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="updateInput" location="310,537" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetUpdate.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetUpdate.jsp" />
+      </result>
+    </action>
+    <action name="subnetUpdate" location="310,642" size="150,62">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetUpdate.jsp" />
+      </result>
+    </action>
+    <action name="subnetDeleteDevice" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetUpdate.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="subnetUpdate.jsp" />
+      </result>
+    </action>
+    <action name="linkportDiscovery" location="310,1107" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="initTopology" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetTopology.jsp" />
+      </result>
+    </action>
+    <action name="detail" location="65,1107" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetDetail.jsp" />
+      </result>
+    </action>
+    <action name="devices" location="65,932" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetDevices.jsp" />
+      </result>
+    </action>
+    <action name="dashboard" location="65,757" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="subnetDashboard.jsp" />
+      </result>
+    </action>
+    <action name="selectDevices" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="selectDevices.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="selectDevices.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="monitorComputer" location="0,0" size="0,0">
+    <action name="computerList" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="computerList.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="monitorTopN" location="0,0" size="0,0">
+    <action name="listAll" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="topN.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="systemSettings" location="0,0" size="0,0">
+    <action name="thresholdSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="thresholdSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveThresholdSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="thresholdSetting.jsp" />
+      </result>
+    </action>
+    <action name="computerScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="computerScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveComputerScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="computerScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="fluxScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="fluxScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveFluxScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="fluxScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="topologyScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="topologyScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveTopologyScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="topologyScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="faultScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="faultScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveFaultScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="faultScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="pingScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pingScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="savePingScanSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="pingScanSetting.jsp" />
+      </result>
+    </action>
+    <action name="deleteTimePoint" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveTimePoint" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="otherSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="otherSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveOtherSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="otherSetting.jsp" />
+      </result>
+    </action>
+    <action name="alertSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="alertSetting.jsp" />
+      </result>
+    </action>
+    <action name="saveAlertSetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="alertSetting.jsp" />
+      </result>
+    </action>
+    <action name="alertPolicySetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="alertPolicySetting.jsp" />
+      </result>
+    </action>
+    <action name="saveAlertPolicySetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="settings.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="alertPolicySetting.jsp" />
+      </result>
+    </action>
+    <action name="relievePolicy" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="applyPolicy" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="alertPolicy" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="alertPolicy.jsp" />
+      </result>
+    </action>
+    <action name="saveAlertPolicy" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="alertPolicy.jsp" />
+      </result>
+    </action>
+    <action name="deleteAlertPolicy" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="alertPolicySetting.jsp" />
+      </result>
+    </action>
+    <action name="addAlertPolicy" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="alertPolicySetting.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="monitorAlert" location="0,0" size="0,0">
+    <action name="listAll" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="alertList.jsp" />
+      </result>
+    </action>
+    <action name="listByCondition" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="listByCondition.jsp" />
+      </result>
+    </action>
+    <action name="delete" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="searchInput" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="searchInput.jsp" />
+      </result>
+    </action>
+    <action name="searchResult" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="listByCondition.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="searchInput.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="deviceList.jsp" path="/monitor/device/deviceList.jsp" location="1024,1395" size="150,55" />
+  <webResource name="deviceAdd.jsp" path="/monitor/device/deviceAdd.jsp" location="1307,1710" size="150,55" />
+  <webResource name="deviceDetail.jsp" path="/monitor/device/deviceDetail.jsp" location="1333,1920" size="150,55" />
+  <webResource name="deviceSearch.jsp" path="/monitor/device/deviceSearch.jsp" location="1333,2095" size="150,55" />
+  <webResource name="searchResult.jsp" path="/monitor/device/searchResult.jsp" location="1333,2270" size="150,55" />
+  <webResource name="deviceInterface.jsp" path="/monitor/device/deviceInterface.jsp" location="29,2550" size="150,55" />
+  <webResource name="subnetList.jsp" path="/monitor/subnet/subnetList.jsp" location="504,100" size="150,55" />
+  <webResource name="subnetAdd.jsp" path="/monitor/subnet/subnetAdd.jsp" location="17,310" size="150,55" />
+  <webResource name="subnetUpdate.jsp" path="/monitor/subnet/subnetUpdate.jsp" location="183,625" size="150,55" />
+  <webResource name="subnetDetail.jsp" path="/monitor/subnet/subnetDetail.jsp" location="498,1080" size="150,55" />
+  <webResource name="subnetDevices.jsp" path="/monitor/subnet/subnetDevices.jsp" location="495,905" size="150,55" />
+  <webResource name="subnetDashboard.jsp" path="/monitor/subnet/subnetDashboard.jsp" location="489,730" size="150,55" />
+  <webResource name="subnetTopology.jsp" path="/monitor/subnet/subnetTopology.jsp" location="0,0" size="0,0" />
+  <webResource name="computerList.jsp" path="/monitor/computer/computerList.jsp" location="0,0" size="0,0" />
+  <webResource name="selectDevices.jsp" path="/monitor/subnet/selectDevices.jsp" location="0,0" size="0,0" />
+  <webResource name="topN.jsp" path="/monitor/topN/topN.jsp" location="0,0" size="0,0" />
+  <webResource name="thresholdSetting.jsp" path="/monitor/manage/thresholdSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="settings.jsp" path="/monitor/manage/settings.jsp" location="0,0" size="0,0" />
+  <webResource name="computerScanSetting.jsp" path="/monitor/manage/computerScanSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="fluxScanSetting.jsp" path="/monitor/manage/fluxScanSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="topologyScanSetting.jsp" path="/monitor/manage/topologyScanSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="faultScanSetting.jsp" path="/monitor/manage/faultScanSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="otherSetting.jsp" path="/monitor/manage/otherSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="pingScanSetting.jsp" path="/monitor/manage/pingScanSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="list.jsp" path="/monitor/alert/list.jsp" location="0,0" size="0,0" />
+  <webResource name="alertList.jsp" path="/monitor/alert/alertList.jsp" location="0,0" size="0,0" />
+  <webResource name="listByCondition.jsp" path="/monitor/alert/listByCondition.jsp" location="0,0" size="0,0" />
+  <webResource name="searchInput.jsp" path="/monitor/alert/searchInput.jsp" location="0,0" size="0,0" />
+  <webResource name="alertSetting.jsp" path="/monitor/manage/alertSetting.jsp" location="0,0" size="0,0" />
+  <webResource name="alertPolicySetting.jsp" path="/monitor/manage/alertPolicySetting.jsp" location="0,0" size="0,0" />
+  <webResource name="alertPolicy.jsp" path="/monitor/manage/alertPolicy.jsp" location="0,0" size="0,0" />
+  <extendsEdge source="monitorDevice" target="monitor" routing="0" />
+  <extendsEdge source="monitorComputer" target="monitor" routing="0" />
+  <extendsEdge source="monitorTopN" target="monitor" routing="0" />
+  <extendsEdge source="systemSettings" target="monitor" routing="0" />
+  <extendsEdge source="monitorAlert" target="monitor" routing="0" />
+</Struts2Diagram>
+

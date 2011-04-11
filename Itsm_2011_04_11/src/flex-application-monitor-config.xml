@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:flex="http://www.springframework.org/schema/flex"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">  
+ <bean id="_messageBroker"  
+         class="org.springframework.flex.messaging.MessageBrokerFactoryBean">  
+         <property name="servicesConfigPath">  
+             <value>/WEB-INF/flex/services-config.xml</value>  
+         </property>  
+     </bean>  
+     <!-- Maps request paths at /* to the BlazeDS MessageBroker -->  
+     <bean  
+         class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">  
+         <property name="mappings">  
+             <value>/*=_messageBroker</value>  
+         </property>  
+     </bean>  
+   
+     <!-- Dispatches requests mapped to a MessageBroker -->  
+     <bean  class="org.springframework.flex.messaging.servlet.MessageBrokerHandlerAdapter" /> 
+    
+    <bean id="flexSubnetService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorSubnetService"/>
+    </bean> 
+    
+    <bean id="flexDeviceService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorDeviceService"/>
+    </bean>
+    <bean id="flexComputerService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorComputerService"/>
+    </bean>  
+    <bean id="flexDeviceInterfaceService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorInterfaceCacheService"/>
+    </bean> 
+    <bean id="flexLinkPortService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorLinkportService"/>
+    </bean>
+    <bean id="flexKeyInterfaceService" class="org.springframework.flex.messaging.remoting.FlexRemotingServiceExporter">
+		<property name="messageBroker" ref="_messageBroker"/>
+        <property name="service" ref="MonitorKeyInterfaceService"/>
+    </bean>
+</beans> 

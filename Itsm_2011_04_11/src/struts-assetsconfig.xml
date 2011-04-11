@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="assetsconfig" extends="struts-default" namespace="/assetsconfig">
+		<global-results>
+			<result name="list" type="redirectAction">list</result>
+		</global-results>
+		
+		<action name="main" class="AssetsConfigAction" method="main">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/main.jsp
+			</result>
+		</action>
+		
+		<action name="maininfo" class="AssetsConfigAction" method="maininfo">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/maininfo.jsp
+			</result>
+		</action>
+		
+		<action name="title" class="AssetsConfigAction" method="title">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/title.jsp
+			</result>
+		</action>
+		
+		<action name="top" class="AssetsConfigAction" method="top">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/top.jsp
+			</result>
+		</action>
+		
+		<action name="list" class="AssetsConfigAction" method="list">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/list.jsp
+			</result>
+			<result name="update" type="dispatcher">
+			    /systemmanage/assetsconfig/configupdate.jsp
+			</result>
+		</action>
+		
+		<action name="listinfo" class="AssetsConfigAction" method="listinfo">
+			<result name="success" type="dispatcher">
+				/systemmanage/assetsconfig/listinfo.jsp
+			</result>
+			<result name="updateinfo" type="dispatcher">
+			    /systemmanage/assetsconfig/updateinfo.jsp
+			</result>
+		</action>
+		
+		<action name="savebase" class="AssetsConfigAction" method="savebase">
+		<result name="success" type="dispatcher">/systemmanage/assetsconfig/list.jsp</result>
+		</action>
+			
+		<action name="save" class="AssetsConfigAction" method="save">
+		<result name="success" type="dispatcher">/systemmanage/assetsconfig/listinfo.jsp</result>
+		</action>
+		
+		<action name="update" class="AssetsConfigAction" method="update">
+		<result name="success" type="dispatcher">/systemmanage/assetsconfig/configupdate.jsp</result>
+		</action>
+		
+		<action name="updateinfo" class="AssetsConfigAction" method="updateinfo">
+		<result name="success" type="dispatcher">/systemmanage/assetsconfig/updateinfo.jsp</result>
+		</action>			
+		
+	</package>
+</struts>
