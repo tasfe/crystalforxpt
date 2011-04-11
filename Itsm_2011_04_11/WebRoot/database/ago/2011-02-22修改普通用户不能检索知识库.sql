@@ -1,1 +1,0 @@
-update menu set privfield='select:ËÑË÷' where  id=53;

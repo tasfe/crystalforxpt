@@ -1,6 +1,0 @@
-alter table assets_base change column maintainance_cost ishis int(11) default '0'
-INSERT INTO `config_record` (`id`,`record_name`,`record_description`,`assets_type_id`,`is_assetsinfo`) VALUES 
- (1,'政府机关使用','1',NULL,0),
- (2,'医疗机构','2',NULL,1),
- (3,'中小学','3',NULL,0),
- (4,'大学','4',NULL,0);
