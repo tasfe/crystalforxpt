@@ -1,0 +1,39 @@
+HTML {
+	OVERFLOW-X: hidden
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #f2f2f2
+}
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #333; TEXT-DECORATION: none
+}
+#live800iconlink {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A.nav {
+	FONT-SIZE: 13px; MARGIN: 0px 10px
+}
+#live800iconlink {
+	FONT-SIZE: 13px; MARGIN: 0px 10px
+}
+A.nav:hover {
+	COLOR: #0088cc; TEXT-DECORATION: none
+}
+#live800iconlink:hover {
+	COLOR: #0088cc; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+TABLE A#live800iconlink {
+	TEXT-DECORATION: underline
+}
+TABLE A#live800iconlink:hover {
+	TEXT-DECORATION: none
+}

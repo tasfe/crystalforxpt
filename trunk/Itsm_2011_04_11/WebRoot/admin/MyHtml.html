@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>MyHtml.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=GB18030">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+	</head>
+
+	<body>
+		<tr>
+			<th>
+				执行这个任务
+			</th>
+			<td style="font-weight: bold;">
+				<html:radio property="everyWhat" styleClass="InputBorderNone"
+					value="monthly" onclick="changeStatus(this.value)"> 
+		  每月
+		   </html:radio>
+				<html:radio property="everyWhat" styleClass="InputBorderNone"
+					value="weekly" onclick="changeStatus(this.value)"> 
+		   每周
+		   </html:radio>
+				<html:radio property="everyWhat" styleClass="InputBorderNone"
+					value="userDefined" onclick="changeStatus(this.value)"> 
+		   自定义 </html:radio>
+				<html:hidden property="jobName" value="compare" />
+			</td>
+		</tr>
+
+		<br>
+		<br>
+
+		<tr style="display: " id="whichWeek">
+			<th>
+				选择第几个星期
+			</th>
+			<td style="font-weight: bold;">
+				<html:select property="week">
+					<html:option value="1"> 一 </html:option>
+					<html:option value="2"> 二 </html:option>
+					<html:option value="3"> 三 </html:option>
+					<html:option value="4"> 四 </html:option>
+				</html:select>
+				<html:select property="dayOfMonth">
+					<html:option value="1"> 星期日 </html:option>
+					<html:option value="2"> 星期一 </html:option>
+					<html:option value="3"> 星期二 </html:option>
+					<html:option value="4"> 星期三 </html:option>
+					<html:option value="5"> 星期四 </html:option>
+					<html:option value="6"> 星期五 </html:option>
+					<html:option value="7"> 星期六 </html:option>
+				</html:select>
+			</td>
+		</tr>
+
+		<br>
+		<br>
+
+		<tr style="display: none" id="whichDay">
+			<th>
+				选择星期
+			</th>
+			<td style="font-weight: bold;">
+				<html:select property="dayOfWeek">
+					<html:option value="1"> 星期日 </html:option>
+					<html:option value="2"> 星期一 </html:option>
+					<html:option value="3"> 星期二 </html:option>
+					<html:option value="4"> 星期三 </html:option>
+					<html:option value="5"> 星期四 </html:option>
+					<html:option value="6"> 星期五 </html:option>
+					<html:option value="7"> 星期六 </html:option>
+					</htm:select>
+			</td>
+		</tr>
+
+		<br>
+		<br>
+		
+		<tr>
+			<th>
+				起始时间
+			</th>
+			<td style="font-weight: bold;">
+				<html:select property="timeType" styleId="type"
+					onchange="changeStatus2(this.value)">
+					<html:option value="AM"> 上午 </html:option>
+					<html:option value="PM"> 下午 </html:option>
+				</html:select>
+				<html:select property="hour" styleId="amHours">
+					<html:option value="1"> 1 </html:option>
+					<html:option value="2"> 2 </html:option>
+					<html:option value="3"> 3 </html:option>
+					<html:option value="4"> 4 </html:option>
+					<html:option value="5"> 5 </html:option>
+					<html:option value="6"> 6 </html:option>
+					<html:option value="7"> 7 </html:option>
+					<html:option value="8"> 8 </html:option>
+					<html:option value="9"> 9 </html:option>
+					<html:option value="10"> 10 </html:option>
+					<html:option value="11"> 11 </html:option>
+					<html:option value="12"> 12 </html:option>
+				</html:select>
+				<html:select property="hour" styleId="pmHours" style="display:none">
+					<html:option value="13"> 13 </html:option>
+					<html:option value="14"> 14 </html:option>
+					<html:option value="15"> 15 </html:option>
+					<html:option value="16"> 16 </html:option>
+					<html:option value="17"> 17 </html:option>
+					<html:option value="18"> 18 </html:option>
+					<html:option value="19"> 19 </html:option>
+					<html:option value="20"> 20 </html:option>
+					<html:option value="21"> 21 </html:option>
+					<html:option value="22"> 22 </html:option>
+					<html:option value="23"> 23 </html:option>
+					<html:option value="0"> 0 </html:option>
+				</html:select>
+				点
+				<html:text property="minute" name="minute" style="width:20px;"
+					value="0" onchange="valTime(this.value)" />
+				分
+				<html:text property="second" name="second" style="width:20px;"
+					value="0" onchange="valTime(this.value)" />
+				秒（0-59之间的整数）
+			</td>
+		</tr>
+
+
+	</body>
+</html>

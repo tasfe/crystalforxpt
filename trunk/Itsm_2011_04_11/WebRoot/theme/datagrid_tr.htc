@@ -1,0 +1,11 @@
+<public:attach event="onmouseover" onevent="trOnMouseOver()" />
+<public:attach event="onmouseout" onevent="trOnMouseOut()" />
+
+<script language="JavaScript">
+function trOnMouseOver() {
+	this.style.backgroundColor = "#F9F9F0";
+}
+function trOnMouseOut() {
+	this.style.backgroundColor = "";
+}
+</SCRIPT>
