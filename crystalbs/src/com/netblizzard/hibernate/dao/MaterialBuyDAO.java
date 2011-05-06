@@ -2,6 +2,10 @@ package com.netblizzard.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.LockMode;
+import org.springframework.context.ApplicationContext;
+
+import com.netblizzard.common.core.dao.BaseHibernateDAO;
 import com.netblizzard.hibernate.pojo.MaterialBuy;
 import com.sun.org.apache.commons.logging.Log;
 import com.sun.org.apache.commons.logging.LogFactory;
