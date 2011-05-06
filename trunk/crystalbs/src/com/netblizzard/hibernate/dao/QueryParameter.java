@@ -1,6 +1,6 @@
 package com.netblizzard.hibernate.dao;
 
-import crystal.common.data.StringUtils;
+import com.netblizzard.common.util.StringUtils;
 
 
 /**

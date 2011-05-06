@@ -6,10 +6,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import crystal.hibernate.po.MaterialBuy;
-import crystal.hibernate.po.MaterialCategory;
+import com.netblizzard.common.core.dao.BaseHibernateDAO;
+import com.netblizzard.hibernate.pojo.MaterialCategory;
 
 /**
  * A data access object (DAO) providing persistence and search support for
