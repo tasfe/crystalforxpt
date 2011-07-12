@@ -1,5 +1,4 @@
 package com.netblizzard.util;
-import java.io.UnsupportedEncodingException;
 
 
 public class Unicode2Char {
