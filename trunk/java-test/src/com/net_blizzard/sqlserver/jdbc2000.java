@@ -28,10 +28,9 @@ public class jdbc2000 {
 			rs = smt.executeQuery("select * from sample");
 			while (rs.next())
 				System.out.println(rs.getString("name"));
+			smt.execute("insert into sample (name) values('test')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
 	}
 }
