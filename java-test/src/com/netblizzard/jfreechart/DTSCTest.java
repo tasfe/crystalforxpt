@@ -44,7 +44,7 @@ public class DTSCTest extends ApplicationFrame {
 	private static final Random random = new Random();
 	private Timer timer;
 	
-	private String dateFormat = "yyyy:MM:dd HH:mm";		// X轴时间单位的显示格式
+	private String dateFormat = "yyyy:MM:dd HH:mm:ss";		// X轴时间单位的显示格式
 	private static int SLIDER_INITIAL_VALUE = 100;
 	private static int ALL_LENGTH = 1000 * 60 * 60;
 	private static final int COUNT = ALL_LENGTH / 1000;
@@ -62,18 +62,20 @@ public class DTSCTest extends ApplicationFrame {
 	public DTSCTest(final String title) {
 		super(title);
 		now = new GregorianCalendar();
-		now.setTimeInMillis(System.currentTimeMillis());
+		now.add(GregorianCalendar.MINUTE, -1);
 		begin = new GregorianCalendar();
 		begin.set(GregorianCalendar.HOUR_OF_DAY, 0);
 		begin.set(GregorianCalendar.MINUTE, 0);
 		begin.set(GregorianCalendar.SECOND, 0);
 		begin.set(GregorianCalendar.MILLISECOND, 0);
+		end = new GregorianCalendar();
+		end.add(GregorianCalendar.DAY_OF_MONTH, -7);
 		
 		final DynamicTimeSeriesCollection dataset = new DynamicTimeSeriesCollection(2, COUNT / 100, new Second());
 		dataset.setTimeBase(new Second(now.get(GregorianCalendar.SECOND), now.get(GregorianCalendar.MINUTE), now.get(GregorianCalendar.HOUR_OF_DAY),
 				now.get(GregorianCalendar.DAY_OF_MONTH), now.get(GregorianCalendar.MONTH) + 1, now.get(GregorianCalendar.YEAR)));
 		//dataset.addSeries(gaussianData(), 0, "Gaussian data");
-		dataset.addSeries(new float[COUNT], 0, "Gaussian data");
+		dataset.addSeries(new float[COUNT], 0, "data 0");
 		dataset.addSeries(gaussianData(), 1, "Gaussian data");
 		JFreeChart chart = createChart(dataset);
 		final JButton run = new JButton(STOP);
@@ -176,7 +178,7 @@ public class DTSCTest extends ApplicationFrame {
 		final JFreeChart result = ChartFactory.createTimeSeriesChart(TITLE, "hh:mm:ss", "milliVolts", dataset, true, true, false);
 		final XYPlot plot = result.getXYPlot();
 		ValueAxis domain = plot.getDomainAxis();
-//		domain.setAutoRange(true);
+		domain.setAutoRange(true);
 		ValueAxis range = plot.getRangeAxis();
 		range.setRange(0, MINMAX);
 		
