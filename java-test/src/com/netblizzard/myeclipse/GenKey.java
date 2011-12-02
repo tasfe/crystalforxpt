@@ -80,7 +80,7 @@ public class GenKey {
             String userId = null;
             userId = reader.readLine();
             GenKey myeclipsegen = new GenKey();
-            String res = myeclipsegen.getSerial(userId, "5");
+            String res = myeclipsegen.getSerial(userId, "0");
             System.out.println("Serial:" + res);
             reader.readLine();
         } catch (IOException ex) {
