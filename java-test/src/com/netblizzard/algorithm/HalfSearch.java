@@ -30,14 +30,23 @@ public class HalfSearch {
 		// int[] data = new int[] { 1, 3, 4, 5, 7, 9, 12, 156, 123, 245 };
 		// int num = 24;
 		// System.out.println(HalfSearch.search(data, num));
-		int faboLength = 30;
-		int faboIndex = 23;
-		int[] fabonacci = new int[faboLength];
-		fabonacci[0] = 1;
-		fabonacci[1] = 2;
-		for (int i = 2; i < faboLength; i++) {
-			fabonacci[i] = fabonacci[i - 2] + fabonacci[i - 1];
+		
+		
+//		int faboLength = 30;
+//		int faboIndex = 23;
+//		int[] fabonacci = new int[faboLength];
+//		fabonacci[0] = 1;
+//		fabonacci[1] = 2;
+//		for (int i = 2; i < faboLength; i++) {
+//			fabonacci[i] = fabonacci[i - 2] + fabonacci[i - 1];
+//		}
+//		System.out.println(HalfSearch.search(fabonacci, (int)Fabonacci.getByIndex(faboIndex)));
+		
+		int length = Integer.MAX_VALUE / 8 - 1;
+		int[] data3 = new int[length];
+		for(int i = 0; i < length; i++) {
+			data3[i] = 2 * i + 1;
 		}
-		System.out.println(HalfSearch.search(fabonacci, (int)Fabonacci.getByIndex(faboIndex)));
+		System.out.println(HalfSearch.search(data3, 13579));
 	}
 }
