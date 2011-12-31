@@ -44,10 +44,11 @@ public class LoginRenren {
 			int statusCode = response.getStatusLine().getStatusCode();
 			System.out.println("statusCode:" + statusCode);
 
-//			301 表示这东西永久移动到新的地方了。
-//			302 表示这东西临时移动到新的地方了。如果没有跟 URL，那么就只是告诉浏览器，这东西移动到新的地方了（与 404 不同），但在哪里，我不知道；如果跟了 URL，则浏览器可能会重定向到指定 URL。但实际应用中，浏览器把它当 303 对待。
-//			303 实际应用中，302 跟 303 相似。
-//			307 表示临时重定向，这种重定向不会被缓存，比如服务器有问题了，临时重定向到一个页面。
+//			301 永久重定向,告诉客户端以后应从新地址访问.
+//			302 作为HTTP1.0的标准,以前叫做Moved Temporarily ,现在叫Found. 现在使用只是为了兼容性的处理,包括PHP的默认Location重定向用的也是302.
+//				但是HTTP 1.1 有303 和307作为详细的补充,其实是对302的细化
+//			303：对于POST请求，它表示请求已经被处理，客户端可以接着使用GET方法去请求Location里的URI。
+//			307：对于POST请求，表示请求还没有被处理，客户端应该向Location里的URI重新发起POST请求。
 			if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY || statusCode == HttpStatus.SC_MOVED_TEMPORARILY || statusCode == HttpStatus.SC_SEE_OTHER
 					|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT) {
 				String newUrl = response.getLastHeader("Location").getValue();
