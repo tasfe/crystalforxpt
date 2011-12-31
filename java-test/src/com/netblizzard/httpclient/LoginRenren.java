@@ -44,6 +44,10 @@ public class LoginRenren {
 			int statusCode = response.getStatusLine().getStatusCode();
 			System.out.println("statusCode:" + statusCode);
 
+//			301 表示这东西永久移动到新的地方了。
+//			302 表示这东西临时移动到新的地方了。如果没有跟 URL，那么就只是告诉浏览器，这东西移动到新的地方了（与 404 不同），但在哪里，我不知道；如果跟了 URL，则浏览器可能会重定向到指定 URL。但实际应用中，浏览器把它当 303 对待。
+//			303 实际应用中，302 跟 303 相似。
+//			307 表示临时重定向，这种重定向不会被缓存，比如服务器有问题了，临时重定向到一个页面。
 			if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY || statusCode == HttpStatus.SC_MOVED_TEMPORARILY || statusCode == HttpStatus.SC_SEE_OTHER
 					|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT) {
 				String newUrl = response.getLastHeader("Location").getValue();
