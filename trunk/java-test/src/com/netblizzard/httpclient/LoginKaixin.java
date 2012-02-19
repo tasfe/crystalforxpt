@@ -26,7 +26,7 @@ public class LoginKaixin {
 	private static final String HOME_SITE = "http://www.kaixin001.com/home/?uid=4392068";
 	private static final String LOGON_SITE = "http://www.kaixin001.com/login/login_api.php";
 	private static String email = "yongyouziyou@hotmail.com";
-	private static String password = "19821014";
+	private static String password = "1";
 	static DefaultHttpClient httpClient = new DefaultHttpClient();
 
 	public static void main(String[] args) throws Exception {
@@ -47,7 +47,7 @@ public class LoginKaixin {
 		if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY || statusCode == HttpStatus.SC_MOVED_TEMPORARILY || statusCode == HttpStatus.SC_SEE_OTHER
 				|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT) {
 			String newUrl = response.getLastHeader("Location").getValue();
-			System.out.println("´ÓÐÂ¶¨ÏòµÄÒ³ÃæÎª£º" + newUrl);
+			System.out.println("ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Îªï¿½ï¿½" + newUrl);
 			runBroswer(newUrl);
 		} else if (statusCode == HttpStatus.SC_OK) {
 			System.out.println("--==headers information==--");
@@ -67,9 +67,9 @@ public class LoginKaixin {
 				}
 			}
 
-			// ´ò¿ªä¯ÀÀÆ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			HttpEntity entity = response.getEntity();
-			// ÏÔÊ¾ÄÚÈÝ
+			// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 			if (entity != null) {
 				String content = EntityUtils.toString(entity);
 				System.out.println(content);

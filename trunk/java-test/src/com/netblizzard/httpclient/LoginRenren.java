@@ -27,7 +27,7 @@ public class LoginRenren {
 	private static final String LOGON_SITE = "http://www.renren.com/PLogin.do";
 	private static final String REDIRECT_URL = "http://www.renren.com/home";
 	private static String email = "yongyouziyouto0@sohu.com";
-	private static String password = "111111";
+	private static String password = "1";
 	static HttpClient httpClient = new DefaultHttpClient();
 
 	public static void main(String[] args) {
@@ -44,17 +44,17 @@ public class LoginRenren {
 			int statusCode = response.getStatusLine().getStatusCode();
 			System.out.println("statusCode:" + statusCode);
 
-//			301 ÓÀ¾ÃÖØ¶¨Ïò,¸æËß¿Í»§¶ËÒÔºóÓ¦´ÓÐÂµØÖ··ÃÎÊ.
-//			302 ×÷ÎªHTTP1.0µÄ±ê×¼,ÒÔÇ°½Ð×öMoved Temporarily ,ÏÖÔÚ½ÐFound. ÏÖÔÚÊ¹ÓÃÖ»ÊÇÎªÁË¼æÈÝÐÔµÄ´¦Àí,°üÀ¨PHPµÄÄ¬ÈÏLocationÖØ¶¨ÏòÓÃµÄÒ²ÊÇ302.
-//				µ«ÊÇHTTP 1.1 ÓÐ303 ºÍ307×÷ÎªÏêÏ¸µÄ²¹³ä,ÆäÊµÊÇ¶Ô302µÄÏ¸»¯
-//			303£º¶ÔÓÚPOSTÇëÇó£¬Ëü±íÊ¾ÇëÇóÒÑ¾­±»´¦Àí£¬¿Í»§¶Ë¿ÉÒÔ½Ó×ÅÊ¹ÓÃGET·½·¨È¥ÇëÇóLocationÀïµÄURI¡£
-//			307£º¶ÔÓÚPOSTÇëÇó£¬±íÊ¾ÇëÇó»¹Ã»ÓÐ±»´¦Àí£¬¿Í»§¶ËÓ¦¸ÃÏòLocationÀïµÄURIÖØÐÂ·¢ÆðPOSTÇëÇó¡£
+//			301 ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ß¿Í»ï¿½ï¿½ï¿½ï¿½Ôºï¿½Ó¦ï¿½ï¿½ï¿½Âµï¿½Ö·ï¿½ï¿½ï¿½ï¿½.
+//			302 ï¿½ï¿½ÎªHTTP1.0ï¿½Ä±ï¿½×¼,ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Moved Temporarily ,ï¿½ï¿½ï¿½Ú½ï¿½Found. ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ö»ï¿½ï¿½Îªï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ÔµÄ´ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½PHPï¿½ï¿½Ä¬ï¿½ï¿½Locationï¿½Ø¶ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ò²ï¿½ï¿½302.
+//				ï¿½ï¿½ï¿½ï¿½HTTP 1.1 ï¿½ï¿½303 ï¿½ï¿½307ï¿½ï¿½Îªï¿½ï¿½Ï¸ï¿½Ä²ï¿½ï¿½ï¿½,ï¿½ï¿½Êµï¿½Ç¶ï¿½302ï¿½ï¿½Ï¸ï¿½ï¿½
+//			303ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½POSTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½Í»ï¿½ï¿½Ë¿ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½GETï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½Locationï¿½ï¿½ï¿½URIï¿½ï¿½
+//			307ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½POSTï¿½ï¿½ï¿½ó£¬±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½?ï¿½Í»ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Locationï¿½ï¿½ï¿½URIï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½POSTï¿½ï¿½ï¿½ï¿½
 			if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY || statusCode == HttpStatus.SC_MOVED_TEMPORARILY || statusCode == HttpStatus.SC_SEE_OTHER
 					|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT) {
 				String newUrl = response.getLastHeader("Location").getValue();
-				System.out.println("´ÓÐÂ¶¨ÏòµÄÒ³ÃæÎª£º" + newUrl);
+				System.out.println("ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Îªï¿½ï¿½" + newUrl);
 				runBroswer(newUrl);
-				// È»ºóÓÃHttpGet·½Ê½ÇëÇó
+				// È»ï¿½ï¿½ï¿½ï¿½HttpGetï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 			} else if (statusCode == HttpStatus.SC_OK) {
 				Header headers[] = response.getAllHeaders();
 
@@ -73,9 +73,9 @@ public class LoginRenren {
 					}
 				}
 
-				// ´ò¿ªä¯ÀÀÆ÷
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				HttpEntity entity = response.getEntity();
-				// ÏÔÊ¾ÄÚÈÝ
+				// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 				if (entity != null) {
 					String content = EntityUtils.toString(entity);
 					// System.out.println(content);
