@@ -26,7 +26,7 @@ import org.apache.http.util.EntityUtils;
 public class AuthTest extends BasicHttpResponse{
 	private static String LOGIN_SITE = "http://www.kaixin001.com/login/index.php";
 	private static String user = "yongyou@hotmail.com";
-	private static String password = "19821014";
+	private static String password = "1";
 	
 	public static void main(String[] args) throws Exception {
 //		HttpClient httpclient = new DefaultHttpClient();
@@ -128,13 +128,13 @@ public class AuthTest extends BasicHttpResponse{
 		}
 	}
 
-	// "¿ªÐÄÍøÆäËü×é¼þURLÈçÏÂ£¬´ó¼Ò¿ÉÒÔÌí¼ÓÉÏ×Ô¼ºÏ²»¶µÄ×é¼þURL¡£"
-	// "http://www.kaixin001.com/!slave/index.php", "ÅóÓÑÂòÂô"
-	// "http://www.kaixin001.com/!parking/index.php", "Õù³µÎ»"
-	// "http://www.kaixin001.com/!house/index.php?_lgmode=pri", "Âò·¿×Ó"
+	// "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½Ò¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½"
+	// "http://www.kaixin001.com/!slave/index.php", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+	// "http://www.kaixin001.com/!parking/index.php", "ï¿½ï¿½Î»"
+	// "http://www.kaixin001.com/!house/index.php?_lgmode=pri", "ï¿½ï¿½ï¿½ï¿½"
 	// "http://www.kaixin001.com/!house/index.php?_lgmode=pri&t=49"
-	// "http://www.kaixin001.com/!house/garden/index.php","»¨Ô°"
-	// "http://www.kaixin001.com/!rich/market.php", "³¬¼¶´óºà"
+	// "http://www.kaixin001.com/!house/garden/index.php","ï¿½ï¿½Ô°"
+	// "http://www.kaixin001.com/!rich/market.php", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 	public String enterComponentContent(String url, String componentName, DefaultHttpClient httpclient, List<Cookie> cookies, HttpResponse response,
 			HttpEntity entity) throws Exception {
 		System.out.println("--- Enter: " + componentName + " ---");

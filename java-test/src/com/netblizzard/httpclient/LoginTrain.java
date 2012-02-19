@@ -41,7 +41,7 @@ public class LoginTrain {
 	private static final String LOGON_SITE = "https://dynamic.12306.cn/otsweb/loginAction.do";
 	private static final int LOGON_PORT = 80;
 	private static String email = "memoryxpt";
-	private static String password = "X19821014";
+	private static String password = "1";
 	static HttpClient httpClient = new DefaultHttpClient();
 
 	public static void main(String[] args)  {
@@ -82,8 +82,8 @@ public class LoginTrain {
 
 			httpClient.getConnectionManager().getSchemeRegistry().register(sch);
 
-			// µÚ¶þÖÖÇé¿ö£¬Ê¹ÓÃpost·½Ê½
-			System.out.println("µÚ¶þÖÖÇé¿ö£¬Ê¹ÓÃpost·½Ê½");
+			// ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½postï¿½ï¿½Ê½
+			System.out.println("ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½postï¿½ï¿½Ê½");
 			List<NameValuePair> formparams = new ArrayList<NameValuePair>();
 			formparams.add(new BasicNameValuePair("loginUser.user_name", email));
 			formparams.add(new BasicNameValuePair("user.password", password));
@@ -101,10 +101,10 @@ public class LoginTrain {
 			if (statusCode == HttpStatus.SC_MOVED_PERMANENTLY || statusCode == HttpStatus.SC_MOVED_TEMPORARILY || statusCode == HttpStatus.SC_SEE_OTHER
 					|| statusCode == HttpStatus.SC_TEMPORARY_REDIRECT) {
 				String newUrl = response2.getLastHeader("Location").getValue();
-				System.out.println("´ÓÐÂ¶¨ÏòµÄÒ³ÃæÎª£º" + newUrl);
+				System.out.println("ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Îªï¿½ï¿½" + newUrl);
 
 				runBroswer(newUrl);
-				// È»ºóÓÃHttpGet·½Ê½ÇëÇó
+				// È»ï¿½ï¿½ï¿½ï¿½HttpGetï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 			}
 
 			else if (statusCode == HttpStatus.SC_OK) {
@@ -128,9 +128,9 @@ public class LoginTrain {
 				
 				httppost.abort();
 
-				// ´ò¿ªä¯ÀÀÆ÷
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				HttpEntity entity2 = response2.getEntity();
-				// ÏÔÊ¾ÄÚÈÝ
+				// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 				if (entity2 != null) {
 					// String newUrl = buileUri();
 					URI uri = buileUri();
