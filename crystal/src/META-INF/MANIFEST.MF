@@ -24,7 +24,7 @@ Class-Path: mail.dll activation.dll tool.dll graph.dll
  lib/jfreechart-1.0.10.jar lib/jfreechart-1.0.12.jar 
  lib/JoSQL-2.1.jar 
  lib/log4j-1.2.8.jar 
- lib/looks-2.0.1.jar lib/mail.jar 
+ lib/mail.jar 
  lib/mysql-connector-java-5.1.7-bin.jar 
  lib/spring-aop.jar lib/spring-beans.jar 
  lib/spring-context-support.jar 
