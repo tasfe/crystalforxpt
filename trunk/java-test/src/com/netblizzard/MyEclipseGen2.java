@@ -2,6 +2,20 @@ package com.netblizzard;
 
 import java.io.*;
 
+/**
+ * 虽然提示注册成功了，但是重启Myeclipse后注册信息就还原了，还是提示过期：
+ * 不需要重装的，只要在关闭myeclipse的情况下，
+ * 删除C:\Documents and Settings\你的名字\.myeclipse.properties文件，然后再注册就行了。
+ * .myeclipse.properties文件内容如下
+ * #MyEclipse global properties
+ * #Thu May 07 17:15:15 CST 2009
+ * LICENSE_KEY=fLR8ZC-655555-6757605338154159
+ * LICENSEE=xxxxxx
+ * @author administrator
+ * @version 1.0
+ * @date 2012-7-4
+ * 
+ */
 public class MyEclipseGen2 {
 	private static final String LL = "Decompiling this copyrighted software is a violation of both your license agreement and the Digital Millenium Copyright Act of 1998 (http://www.loc.gov/copyright/legislation/dmca.pdf). Under section 1204 of the DMCA, penalties range up to a $500,000 fine or up to five years imprisonment for a first offense. Think about it; pay for a license, avoid prosecution, and feel better about yourself.";
 
