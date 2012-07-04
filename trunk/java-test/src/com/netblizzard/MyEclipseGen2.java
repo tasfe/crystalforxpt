@@ -79,3 +79,7 @@ public class MyEclipseGen2 {
 		}
 	}
 }
+
+/*please input register name:
+	sample0
+	Serial:fLR8ZC-855575-60525856819933592*/
