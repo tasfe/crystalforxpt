@@ -37,7 +37,7 @@
  *
  */
 
-package org.jfree.chart.demo;
+package com.netblizzard.jfreechart;
 
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.xy.XYZDataset;
