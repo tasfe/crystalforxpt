@@ -48,7 +48,7 @@ import org.jfree.data.xy.XYZDataset;
  *
  * @author David Gilbert
  */
-public class SampleXYZDataset extends AbstractSeriesDataset implements XYZDataset {
+public abstract class SampleXYZDataset extends AbstractSeriesDataset implements XYZDataset {
 
     /** The x values. */
     private double[] xVal = {2.1, 2.375625, 2.375625, 2.232928726, 2.232928726, 1.860415253,
@@ -104,7 +104,7 @@ public class SampleXYZDataset extends AbstractSeriesDataset implements XYZDatase
      *
      * @return the x-value.
      */
-    public Number getXValue(int series, int item) {
+    public double getXValue(int series, int item) {
         return new Double(this.xVal[item]);
     }
 
@@ -116,7 +116,7 @@ public class SampleXYZDataset extends AbstractSeriesDataset implements XYZDatase
      *
      * @return the y-value.
      */
-    public Number getYValue(int series, int item) {
+    public double getYValue(int series, int item) {
         return new Double(this.yVal[item]);
     }
 
@@ -128,7 +128,7 @@ public class SampleXYZDataset extends AbstractSeriesDataset implements XYZDatase
      *
      * @return the z-value for the specified series and item.
      */
-    public Number getZValue(int series, int item) {
+    public double getZValue(int series, int item) {
         return new Double(this.zVal[item]);
     }
 
