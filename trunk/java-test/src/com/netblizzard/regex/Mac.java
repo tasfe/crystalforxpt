@@ -10,7 +10,7 @@ public class Mac {
 			for(String s : str) {
 				Matcher matcher = pattern.matcher(s);
 				if(matcher.matches()) {
-					System.out.println(s + "   ƥ��ɹ�");
+					System.out.println(s + "   匹配成功");
 				}
 			}
 			
