@@ -9,9 +9,9 @@ public class ParseNewHwMac {
 			return "";
 		} else {
 			for (int i = oids.length - 4; i > oids.length - 10; i--) {
-				tmp = Integer.toHexString(Integer.parseInt(oids[i]));// ×ª»»³É16½øÖÆµÄ×Ö·û´®
+				tmp = Integer.toHexString(Integer.parseInt(oids[i]));// è½¬æ¢æˆ16è¿›åˆ¶çš„å­—ç¬¦ä¸²
 				if (tmp.length() == 1) {
-					tmp = "0" + tmp;// ²¹Æë0
+					tmp = "0" + tmp;// è¡¥é½0
 				}
 				if(i == oids.length - 4) {
 					str.insert(0, tmp);
