@@ -22,8 +22,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import jpcap.JpcapCaptor;
-import jpcap.NetworkInterface;
+//import jpcap.JpcapCaptor;
+//import jpcap.NetworkInterface;
 
 /**
  * <p>
@@ -935,7 +935,7 @@ public class Tools {
 		return true;
 	}
 
-	public static boolean CheckJpcap() {
+	/*public static boolean CheckJpcap() {
 		try {
 			Class.forName("jpcap.JpcapCaptor");
 			NetworkInterface[] devices = JpcapCaptor.getDeviceList();
@@ -952,7 +952,7 @@ public class Tools {
 			JOptionPane.showMessageDialog(null, "找不到libpcap/WinPcap.\n 请确认是否安装了libpcap/WinPcap.");
 			return false;
 		}
-	}
+	}*/
 	
 	
 	
